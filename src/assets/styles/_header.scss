@@ -1,7 +1,17 @@
 .header {
-  min-height: 70px;
-  background-color: #000;
-  position: sticky;
-  top: 0;
-  left: 0;
+  background-color: var(--header-bg-color);
+  padding: 16px;
+  height: 77px;
+}
+
+.date-time__day,
+.date-time__date,
+.date-time__time
+ {
+  font-size: 14px;
+}
+
+.date-time__icon-clock {
+  color: var(--green);
+  margin-right: 4px;
 }

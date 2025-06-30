@@ -1,32 +1,11 @@
 const login = {
   "Login": {
     "layout": {
-      "title": "Авторизоваться",
-      "description": "Авторизоваться - описание"
+      "title": "Login page",
+      "description": "Login page - description",
     },
-    "title": "Авторизоваться",
-    "description": "Для входа в систему введите адрес электронной почты и пароль",
-    "submitButton": "Авторизоваться",
-    "form": {
-      "email": {
-        "label": "Электронная почта",
-        "placeholder": "Введите электронную почту",
-        "errors": {
-          "required": "Пожалуйста, введите электронную почту!"
-        }
-      },
-      "password": {
-        "label": "Пароль",
-        "placeholder": "Введите пароль",
-        "errors": {
-          "required": "Пожалуйста, введите пароль!",
-          "minLength": "Длина должна быть не менее 6 символов",
-          "maxLength": "Длина должна быть не более 20 символов"
-        }
-      },
-    }
+    "title": "Login",
   },
 };
 
 export default login;
-

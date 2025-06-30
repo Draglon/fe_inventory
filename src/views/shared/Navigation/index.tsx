@@ -1,22 +1,21 @@
-import { useTranslations } from "next-intl";
+import { Nav } from "react-bootstrap";
 
-import NavigationLink from "@/views/shared/NavigationLink";
+import NavigationItem from "@/views/shared/NavigationItem";
 
-const Navigation = () => {
-  const t = useTranslations("Navigation");
+type NavigationProps = {
+  menu: {
+    href: string;
+    text: string;
+  }[];
+};
 
+const Navigation = ({ menu }: NavigationProps) => {
   return (
-    <nav className="nav">
-      <NavigationLink href="/resume" className="nav__link">
-        {t("navResume")}
-      </NavigationLink>
-      <NavigationLink href="/resume_create" className="nav__link">
-        {t("navResumeCreate")}
-      </NavigationLink>
-      <NavigationLink href="/resume_edit" className="nav__link">
-        {t("navResumeEdit")}
-      </NavigationLink>
-    </nav>
+    <Nav>
+      {menu.map((item, index) => (
+        <NavigationItem key={index} {...item} />
+      ))}
+    </Nav>
   );
 };
 

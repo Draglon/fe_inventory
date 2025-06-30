@@ -1,8 +1,10 @@
 const navigation = {
   "Navigation": {
-    "navResume": "Резюме",
-    "navResumeCreate": "Создать",
-    "navResumeEdit": "Редактировать",
+    "parishes": "Приходы",
+    "groups": "Группы",
+    "products": "Продукты",
+    "users": "Пользователи",
+    "settings": "Настройки"
   },
 };
 

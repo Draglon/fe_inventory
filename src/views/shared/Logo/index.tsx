@@ -13,6 +13,7 @@ const Logo = () => {
         height="43"
         data-testid="logoImg"
       />
+      <div className="logo__text">INVENTORY</div>
     </div>
   );
 };

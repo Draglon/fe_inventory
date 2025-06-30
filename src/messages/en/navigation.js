@@ -1,8 +1,10 @@
 const navigation = {
   "Navigation": {
-    "navResume": "Resume",
-    "navResumeCreate": "Resume create",
-    "navResumeEdit": "Resume edit",
+    "parishes": "Parishes",
+    "groups": "Groups",
+    "products": "Products",
+    "users": "Users",
+    "settings": "Settings"
   },
 };
 

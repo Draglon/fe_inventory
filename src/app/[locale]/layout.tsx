@@ -6,7 +6,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 
 import { routing } from "@/i18n/routing";
 import StoreProvider from "@/store/StoreProvider";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/styles.scss";
 
 import { Providers } from "./providers";
@@ -28,7 +28,7 @@ export const generateStaticParams = () => {
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Home" });
+  const t = await getTranslations({ locale, namespace: "Products" });
 
   return {
     title: t("layout.title"),

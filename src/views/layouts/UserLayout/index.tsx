@@ -1,29 +1,25 @@
 "use client";
-import { Container } from 'react-bootstrap';
-// import { useEffect } from "react";
+import { Container } from "react-bootstrap";
 
-// import { useAppDispatch } from "@/store/hooks";
-// import fetchUser from "@/store/auth/operations/fetchUser";
 import UserHeader from "@/views/layouts/headers/UserHeader";
+import Sidebar from "@/views/shared/Sidebar";
 // import ModalRoot from "@/views/shared/ModalRoot";
-
 
 type Props = {
   children: React.ReactNode;
 };
 
 const UserLayout = ({ children }: Props) => {
-  // const dispatch = useAppDispatch();
-
-  // useEffect(() => {
-  //   dispatch(fetchUser());
-  // }, [dispatch]);
-
   return (
     <>
       <UserHeader />
-      <Container fluid>
-          {/* <main className="page__main">{children}</main> */}
+      <Container fluid className="page__layout">
+        <main className="page__main">
+          <div className="page__sidebar">
+            <Sidebar />
+          </div>
+          <div className="page_content">{children}</div>
+        </main>
         {/* <ModalRoot /> */}
       </Container>
     </>

@@ -2,9 +2,9 @@ const settings = {
   "Settings": {
     "layout": {
       "title": "Настройки",
-      "description": "Настройки - описание"
+      "description": "Настройки - описание",
     },
-    "title": "Настройки"
+    "title": "Настройки",
   },
 };
 

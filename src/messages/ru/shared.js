@@ -1,5 +1,6 @@
 const shared = {
   "shared": {
+    "search": "Поиск",
     "confirm": "Подтвердить",
     "cancel": "Отменить",
     "logIn": "Авторизоваться",

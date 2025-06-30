@@ -1,10 +1,14 @@
 @use 'variables';
 @use 'globals';
-// @use 'mixins/index';
+@use 'mixins/index';
 
 @use 'forms/form';
 @use 'forms/input-field';
+@use 'button';
 
 @use 'header';
-@use 'footer';
-@use 'button';
+@use 'logo';
+@use 'indicator';
+@use 'page';
+@use 'sidebar';
+@use 'products';
