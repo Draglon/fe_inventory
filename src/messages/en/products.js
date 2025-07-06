@@ -4,6 +4,7 @@ const products = {
       "title": "Products page",
       "description": "Products page - description",
     },
+    "title": "Products",
   },
 };
 

@@ -1,6 +1,8 @@
 .header {
   background-color: var(--header-bg-color);
+  box-shadow: 0 0 10px var(--grey-light);
   padding: 16px;
+  position: relative;
   height: 77px;
 }
 

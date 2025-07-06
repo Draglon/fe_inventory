@@ -1,5 +1,6 @@
 const shared = {
   "shared": {
+    "search": "Search",
     "confirm": "Confirm",
     "cancel": "Cancel",
     "logIn": "Log in",
@@ -11,7 +12,13 @@ const shared = {
     "next": "Next",
     "previous": "Previous",
     "add": "Add",
+    "delete": "Delete",
     "save": "Save",
+    "modal": {
+      "removeProduct": {
+        "title": "Are you sure you want to remove this product?",
+      }
+    },
   },
 };
 

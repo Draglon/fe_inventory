@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 import UserHeader from "@/views/layouts/headers/UserHeader";
 import Sidebar from "@/views/shared/Sidebar";
-// import ModalRoot from "@/views/shared/ModalRoot";
+import ModalRoot from "@/views/shared/ModalRoot";
 
 type Props = {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ const UserLayout = ({ children }: Props) => {
           </div>
           <div className="page_content">{children}</div>
         </main>
-        {/* <ModalRoot /> */}
+        <ModalRoot />
       </Container>
     </>
   );

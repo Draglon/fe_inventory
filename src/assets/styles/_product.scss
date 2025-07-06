@@ -1,0 +1,28 @@
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.product__active {
+}
+
+.product__image {
+  padding: 0 30px;
+}
+
+.product__description {
+  padding: 0 15px; 
+}
+
+.product__title {
+  color: var(--grey-dark);
+  font-size: 14px;
+}
+
+.product__serialNumber {
+  color: var(--grey-light);
+  font-size: 12px;
+}

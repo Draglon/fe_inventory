@@ -1,0 +1,73 @@
+import productSrc from "@/../public/images/product.webp";
+
+export const PRODUCTS = [
+  {
+    id: "1",
+    serialNumber: "SN-12.3456789",
+    isNew: 1,
+    photo: productSrc,
+    title: "Product 1",
+    type: "Monitors",
+    specification: "Specification 1",
+    guarantee: {
+      start: "2017-06-29 12:09:33",
+      end: "2017-06-29 12:09:33",
+    },
+    price: [
+      { value: 100, symbol: "USD", isDefault: 0 },
+      { value: 2600, symbol: "UAH", isDefault: 1 },
+    ],
+    order: 1,
+    date: "2017-06-29 12:09:33",
+    status: "В наличии",
+    group: "Длинное предлинное длиннючее название группы",
+    fullName: null,
+    parish: "Длинное предлинное длиннючее название прихода",
+  },
+  {
+    id: "2",
+    serialNumber: "SN-12.3456789",
+    isNew: 0,
+    photo: productSrc,
+    title: "Інтерактивна панель Promethean ActivPanel LX 75 з модулем OPS-A",
+    type: "Monitors",
+    specification: "Specification 1",
+    guarantee: {
+      start: "2017-06-29 12:09:33",
+      end: "2017-06-29 12:09:33",
+    },
+    price: [
+      { value: 100, symbol: "USD", isDefault: 0 },
+      { value: 2600, symbol: "UAH", isDefault: 1 },
+    ],
+    order: 1,
+    date: "2017-06-29 12:09:33",
+    status: "В ремонте",
+    group: "Длинное предлинное длиннючее название группы",
+    fullName: "John Smith",
+    parish: "Длинное предлинное длиннючее название прихода",
+  },
+  {
+    id: "3",
+    serialNumber: "SN-12.3456789",
+    isNew: 0,
+    photo: productSrc,
+    title: "Інтерактивна панель Promethean ActivPanel LX 75 з модулем OPS-A",
+    type: "Monitors",
+    specification: "Specification 1",
+    guarantee: {
+      start: "2017-06-29 12:09:33",
+      end: "2017-06-29 12:09:33",
+    },
+    price: [
+      { value: 100, symbol: "USD", isDefault: 0 },
+      { value: 2600, symbol: "UAH", isDefault: 1 },
+    ],
+    order: 1,
+    date: "2017-06-29 12:09:33",
+    status: "В ремонте",
+    group: "Длинное предлинное длиннючее название группы",
+    fullName: null,
+    parish: "Длинное предлинное длиннючее название прихода",
+  },
+];

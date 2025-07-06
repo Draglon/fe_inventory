@@ -25,8 +25,12 @@ function Select({
   options,
 }: SelectProps) {
   return (
-    <div className="select-field">
-      {label && <Form.Label htmlFor={id}>{label}</Form.Label>}
+    <div className="select__field">
+      {label && (
+        <Form.Label htmlFor={id} className="select__label">
+          {label}
+        </Form.Label>
+      )}
       <Form.Select
         className={clsx("select", className)}
         size={size}

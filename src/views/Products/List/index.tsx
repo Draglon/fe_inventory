@@ -1,134 +1,93 @@
 "use client";
 import clsx from "clsx";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Table } from "react-bootstrap";
 import { Trash } from "react-bootstrap-icons";
 
-import productSrc from "@/../public/images/product.webp";
-
-const products = [
-  {
-    id: "1",
-    inStock: true,
-    productSrc,
-    description:
-      "Інтерактивна панель Promethean ActivPanel LX 75 з модулем OPS-A",
-    serialNumber: "SN-12.3456789",
-    status: "Свободен",
-    periodStart: "06 / 04 / 2017",
-    periodEnd: "06 / 08 / 2025",
-    productStatus: "Новый",
-    priceUsd: "2500 $",
-    priceRub: "250 000.50 UAH",
-    group: null,
-    fullName: "Христорождественский Александр",
-    parish: "Длинное предлинное длиннючее название прихода",
-    dateShort: "06 / 12",
-    dateLong: "06 / Сен / 2017",
-  },
-  {
-    id: "2",
-    inStock: false,
-    productSrc,
-    description:
-      "Інтерактивна панель Promethean ActivPanel LX 75 з модулем OPS-A",
-    serialNumber: "SN-12.3456789",
-    status: "В ремонте",
-    periodStart: "06 / 04 / 2017",
-    periodEnd: "06 / 08 / 2025",
-    productStatus: "Б / у",
-    priceUsd: "2500 $",
-    priceRub: "250 000.50 UAH",
-    group: "Длинное предлинное длиннючее название группы",
-    fullName: null,
-    parish: "Длинное предлинное длиннючее название прихода",
-    dateShort: "06 / 12",
-    dateLong: "06 / Сен / 2017",
-  },
-  {
-    id: "3",
-    inStock: false,
-    productSrc,
-    description:
-      "Інтерактивна панель Promethean ActivePanel LX 75 з модулем OPS-A",
-    serialNumber: "SN-12.3456789",
-    status: "В ремонте",
-    periodStart: "06 / 04 / 2017",
-    periodEnd: "06 / 08 / 2025",
-    productStatus: "Новый",
-    priceUsd: "2500 $",
-    priceRub: "250 000.50 UAH",
-    group: "Длинное предлинное длиннючее название группы",
-    fullName: null,
-    parish: "Длинное предлинное длиннючее название прихода",
-    dateShort: "06 / 12",
-    dateLong: "06 / Сен / 2017",
-  },
-];
+import { PRODUCTS } from "@/lib/constants/products";
+import { showModal as showModalAction } from "@/store/modal/actions";
+import { useAppDispatch } from "@/store/hooks";
 
 const Products = () => {
+  const t = useTranslations("shared");
+  const dispatch = useAppDispatch();
+
+  const showModal = (item: any) => () => {
+    dispatch(
+      showModalAction({
+        modalType: "REMOVE_MODAL",
+        modalProps: {
+          title: t("modal.removeProduct.title"),
+          product: item,
+          onRemove: () => {},
+        },
+      })
+    );
+  };
+
   return (
     <div className="products">
       <Table className="products__table">
         <tbody>
-          {products.map((item) => (
+          {PRODUCTS.map((item) => (
             <tr className="products__item" key={item.id}>
               <td className="products__indicator">
-                <div className={clsx("indicator", { active: item.inStock })} />
+                <div className={clsx("indicator", { active: item.isNew })} />
               </td>
               <td className="products__image">
                 <Image
-                  src={item?.productSrc}
-                  alt="logo"
+                  src={item?.photo}
+                  alt={item.title}
                   width="36"
                   height="43"
                 />
               </td>
               <td className="products__description">
-                <div className="nowrap">{item?.description}</div>
+                <div className="nowrap">{item?.title}</div>
                 <div className="products__serialNumber nowrap">
                   {item?.serialNumber}
                 </div>
               </td>
               <td
-                className={clsx("products__status", {
-                  "products__status--active": item.inStock,
+                className={clsx("products__status nowrap", {
+                  "products__status--active": item.isNew,
                 })}
               >
                 {item?.status}
               </td>
               <td className="products__period">
                 <div className="products__period-start nowrap">
-                  <span>с</span> {item?.periodStart}
+                  <span>с</span> {item?.guarantee.start}
                 </div>
                 <div className="products__period-end nowrap">
-                  <span>по</span> {item?.periodEnd}
+                  <span>по</span> {item?.guarantee.end}
                 </div>
               </td>
               <td className="products__product-status nowrap">
-                {item?.productStatus}
+                {item?.specification}
               </td>
               <td className="products__price">
                 <div className="products__price-usd nowrap">
-                  {item?.priceUsd}
+                  {item?.price[0].value} {item?.price[0].symbol}
                 </div>
                 <div className="products__price-uah nowrap">
-                  {item?.priceRub}
+                  {item?.price[1].value} {item?.price[1].symbol}
                 </div>
               </td>
               <td className="products__group">{item?.group}</td>
               <td className="products__fullName">{item?.fullName}</td>
               <td className="products__parish">{item?.parish}</td>
               <td className="products__date">
-                <div className="products__date-short nowrap">
-                  {item?.dateShort}
-                </div>
-                <div className="products__date-long nowrap">
-                  {item?.dateLong}
-                </div>
+                <div className="products__date-short nowrap">{item?.date}</div>
+                <div className="products__date-long nowrap">{item?.date}</div>
               </td>
               <td className="products__remove">
-                <Trash className="products__icon-remove" size="14" />
+                <Trash
+                  className="products__icon-remove"
+                  size="14"
+                  onClick={showModal(item)}
+                />
               </td>
             </tr>
           ))}

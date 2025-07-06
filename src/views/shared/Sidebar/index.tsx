@@ -1,32 +1,22 @@
-import Navigation from "@/views/shared/Navigation";
+import { Row, Col } from "react-bootstrap";
 
-const menu = [
-  {
-    href: "/parishes",
-    text: "Navigation.parishes",
-  },
-  {
-    href: "/groups",
-    text: "Navigation.groups",
-  },
-  {
-    href: "/products",
-    text: "Navigation.products",
-  },
-  {
-    href: "/users",
-    text: "Navigation.users",
-  },
-  {
-    href: "/settings",
-    text: "Navigation.settings",
-  },
-];
+import { NAVIGATION_MENU } from "@/lib/constants/navigation";
+import Avatar from "@/views/shared/Avatar";
+import Navigation from "@/views/shared/Navigation";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <Navigation menu={menu} />
+      <Row>
+        <Col>
+          <Avatar />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Navigation menu={NAVIGATION_MENU} />
+        </Col>
+      </Row>
     </div>
   );
 };

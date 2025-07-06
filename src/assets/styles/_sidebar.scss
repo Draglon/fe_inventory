@@ -1,7 +1,5 @@
 .sidebar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 20px 15px;
   width: 200px;
 
   .nav {
@@ -12,8 +10,22 @@
   }
 
   .nav__link {
-    &.active {
+    color: var(--grey-dark);
+    border-bottom: 2px solid var(--transparent);
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color .3s, border .3s;
 
+    &:hover {
+      color: var(--green);
+    }
+
+    &.active {
+      color: var(--green);
+      border-bottom: 2px solid var(--green);
     }
   }
 }
