@@ -1,14 +1,9 @@
 "use client";
-import { useTranslations } from "next-intl";
-
 import Select from "@/views/shared/bootstrap/Select";
 
 const Products = () => {
-  const t = useTranslations("Products");
-
   return (
-    <header className="filter__header">
-      <h1 className="filter__title">{t("title")} / 25</h1>
+    <div className="filter">
       <Select
         id={"1"}
         label="Тип: "
@@ -25,7 +20,7 @@ const Products = () => {
           { key: "2", value: "asd" },
         ]}
       />
-    </header>
+    </div>
   );
 };
 

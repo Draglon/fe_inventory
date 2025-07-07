@@ -1,5 +1,6 @@
 "use client";
 import clsx from "clsx";
+import { Alert as BootstrapAlert } from "react-bootstrap";
 
 type AlertProps = {
   id?: string;
@@ -28,7 +29,7 @@ function Alert({
   className,
 }: AlertProps) {
   return (
-    <Alert
+    <BootstrapAlert
       id={id}
       key={key}
       show={show}
@@ -36,7 +37,7 @@ function Alert({
       className={clsx("alert", className)}
     >
       {children}
-    </Alert>
+    </BootstrapAlert>
   );
 }
 

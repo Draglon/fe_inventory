@@ -1,12 +1,7 @@
-.filter__header {
+.filter {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 30px;
-
-  .filter__title {
-    padding-right: 15px;
-  }
 
   .select__field {
     display: flex;
@@ -25,8 +20,4 @@
       width: 300px;
     }
   }
-}
-
-.filter__field {
-
 }

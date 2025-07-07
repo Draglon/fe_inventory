@@ -22,17 +22,7 @@ function Input({
   return (
     <div className={clsx("input-field", className)}>
       {label && <Form.Label htmlFor={id}>{label}</Form.Label>}
-      <Form.Control
-        id={id}
-        type={type}
-        size={size}
-        placeholder={placeholder}
-        // aria-describedby="passwordHelpBlock"
-      />
-      {/* <Form.Text id="passwordHelpBlock" muted>
-        Your password must be 8-20 characters long, contain letters and numbers,
-        and must not contain spaces, special characters, or emoji.
-      </Form.Text> */}
+      <Form.Control id={id} type={type} size={size} placeholder={placeholder} />
     </div>
   );
 }
