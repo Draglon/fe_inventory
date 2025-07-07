@@ -17,6 +17,9 @@ const shared = {
     "modal": {
       "removeProduct": {
         "title": "Are you sure you want to remove this product?",
+      },
+      "removeParish": {
+        "title": "Are you sure you want to remove this parish?",
       }
     },
   },

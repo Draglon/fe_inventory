@@ -3,8 +3,8 @@ import { routing } from "@/i18n/routing";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Select } from "antd";
 import { useParams } from "next/navigation";
+import Form from "react-bootstrap/Form";
 
 const LocaleSwitcherSelect = () => {
   const t = useTranslations("LocaleSwitcher");
@@ -14,29 +14,31 @@ const LocaleSwitcherSelect = () => {
   const pathname = usePathname();
   const params = useParams();
 
-  const onChangeLocation = (lang: string) => {
+  const onChangeLocation = (e: React.FormEvent<HTMLSelectElement>) => {
     startTransition(() => {
       router.replace(
         // @ts-expect-error:next-line
         { pathname, params },
-        { locale: lang }
+        // @ts-expect-error:next-line
+        { locale: e.target.value }
       );
     });
   };
 
   return (
-    <Select
+    <Form.Select
       className="locale-switcher"
-      defaultValue={locale}
+      value={locale}
       disabled={isPending}
+      size="lg"
       onChange={onChangeLocation}
     >
       {routing.locales.map((cur: string) => (
-        <Select.Option key={cur} value={cur}>
+        <option key={cur} value={cur}>
           {t("locale", { locale: cur })}
-        </Select.Option>
+        </option>
       ))}
-    </Select>
+    </Form.Select>
   );
 };
 

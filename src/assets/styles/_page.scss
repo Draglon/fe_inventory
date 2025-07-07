@@ -8,6 +8,19 @@
   height: calc(100vh - 77px);
 }
 
+.page__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.page__title {
+  font-size: 32px;
+  margin: 0;
+}
+
 .page__sidebar {
   background-color: var(--white);
   width: 200px;

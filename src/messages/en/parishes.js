@@ -4,6 +4,7 @@ const parishes = {
       "title": "Parishes page",
       "description": "Parishes page - description",
     },
+    "title": "Parishes",
   },
 };
 

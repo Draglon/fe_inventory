@@ -30,22 +30,23 @@
     vertical-align: middle;
     text-align: center;
   }
-  .products__image {
 
-  }
   .products__description {
     font-size: 14px;
   }
+
   .products__serialNumber {
     color: var(--grey-light);
     font-size: 12px;
   }
+
   .products__status {
     font-size: 12px;
     &.products__status--active {
       color: var(--green-light);
     }
   }
+
   .products__period {
     color: var(--grey);
     font-size: 12px;
@@ -55,55 +56,62 @@
       width: 15px;
     }
   }
+
   .products__period-start {
     font-size: 12px;
   }
+
   .products__period-end {
     font-size: 12px;
   }
+
   .products__product-status {
     color: var(--grey);
     font-size: 12px;
   }
-  .products__price {
 
-  }
   .products__price-usd {
     color: var(--grey-light);
     font-size: 10px;
   }
+
   .products__price-uah {
     color: var(--grey);
     font-size: 14px;
   }
+
   .products__group {
     color: var(--grey);
     font-size: 14px;
   }
+
   .products__fullName {
     color: var(--grey);
     font-size: 14px;
   }
+
   .products__parish {
     color: var(--grey);
     font-size: 14px;
   }
-  .products__date {
-  }
+
   .products__date-short {
     color: var(--grey-light);
     font-size: 10px;
     text-align: center;
   }
+
   .products__date-long {
-    font-size: 12px;
     color: var(--grey);
+    font-size: 12px;
   }
+
   .products__remove {
     padding: 15px;
     vertical-align: middle;
     text-align: center;
   }
+
   .products__icon-remove {
     color: var(--grey);
     cursor: pointer;
