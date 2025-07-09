@@ -1,11 +1,12 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { Table } from "react-bootstrap";
-import { Trash, ListUl } from "react-bootstrap-icons";
+import { ListUl } from "react-bootstrap-icons";
 
 import { ORDERS } from "@/lib/constants/orders";
 import { showModal as showModalAction } from "@/store/modal/actions";
 import { useAppDispatch } from "@/store/hooks";
+import RemoveButton from "@/views/shared/RemoveButton";
 import Button from "@/views/shared/bootstrap/Button";
 
 const Products = () => {
@@ -57,11 +58,7 @@ const Products = () => {
                 <div className="parishes__price-uah">250 000.50 UAH</div>
               </td>
               <td className="parishes__remove">
-                <Trash
-                  className="parishes__icon-remove"
-                  size="14"
-                  onClick={showModal(item)}
-                />
+                <RemoveButton onClick={showModal(item)} />
               </td>
             </tr>
           ))}

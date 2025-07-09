@@ -1,0 +1,9 @@
+.status {
+  color: var(--grey-dark);
+  font-size: 14px;
+  font-weight: 500;
+
+  &--active {
+    color: var(--green-light);
+  }
+}

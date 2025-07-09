@@ -5,6 +5,7 @@ const groups = {
       "description": "Groups - description",
     },
     "title": "Groups",
+    "addProduct": "Add product",
   },
 };
 

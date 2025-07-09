@@ -5,6 +5,7 @@ const groups = {
       "description": "Групи - опис",
     },
     "title": "Групи",
+    "addProduct": "Додати продукт",
   },
 };
 

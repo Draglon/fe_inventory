@@ -6,14 +6,19 @@
 @use 'forms/input-field';
 @use 'button';
 @use 'modal';
+@use 'dropdown';
 
+// shared
+@use 'indicator';
+@use 'status';
+@use 'remove-button';
 @use 'header';
 @use 'logo';
 @use 'avatar';
-@use 'indicator';
 @use 'filter';
 @use 'page';
 @use 'sidebar';
 @use 'product';
 @use 'products';
 @use 'parishes';
+@use 'groups';
