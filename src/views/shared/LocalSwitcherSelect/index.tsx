@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import Form from "react-bootstrap/Form";
 
 const LocaleSwitcherSelect = () => {
-  const t = useTranslations("LocaleSwitcher");
+  const t = useTranslations();
   const locale = useLocale();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -35,7 +35,7 @@ const LocaleSwitcherSelect = () => {
     >
       {routing.locales.map((cur: string) => (
         <option key={cur} value={cur}>
-          {t("locale", { locale: cur })}
+          {t("LocaleSwitcher.locale", { locale: cur })}
         </option>
       ))}
     </Form.Select>
