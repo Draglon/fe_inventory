@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ru locale matches snapshot 1`] = `
+{
+  "Groups": {
+    "addProduct": "Добавить продукт",
+    "layout": {
+      "description": "Группы - описание",
+      "title": "Группы",
+    },
+    "title": "Группы",
+  },
+  "LocaleSwitcher": {
+    "label": "Выбрать язык",
+    "locale": "{locale, select, ru {Русский} ua {Украинский} en {Английский} other {Unknown}}",
+  },
+  "Login": {
+    "layout": {
+      "description": "Login page - description",
+      "title": "Login page",
+    },
+    "title": "Login",
+  },
+  "Navigation": {
+    "groups": "Группы",
+    "parishes": "Приходы",
+    "products": "Продукты",
+    "settings": "Настройки",
+    "users": "Пользователи",
+  },
+  "Parishes": {
+    "layout": {
+      "description": "Приходы - описание",
+      "title": "Приходы",
+    },
+    "title": "Приходы",
+  },
+  "Products": {
+    "layout": {
+      "description": "Продукты - описание",
+      "title": "Продукты",
+    },
+    "title": "Продукты",
+  },
+  "Settings": {
+    "layout": {
+      "description": "Настройки - описание",
+      "title": "Настройки",
+    },
+    "title": "Настройки",
+  },
+  "Users": {
+    "layout": {
+      "description": "Пользователи - описание",
+      "title": "Пользователи",
+    },
+    "title": "Пользователи",
+  },
+  "shared": {
+    "add": "Добавить",
+    "cancel": "Отменить",
+    "confirm": "Подтвердить",
+    "create": "Создать",
+    "delete": "Удалить",
+    "logIn": "Авторизоваться",
+    "logout": "Выйти",
+    "modal": {
+      "removeParish": {
+        "title": "Вы уверены, что хотите удалить этот приход?",
+      },
+      "removeProduct": {
+        "title": "Вы уверены, что хотите удалить этот продукт?",
+      },
+    },
+    "next": "Следующий",
+    "previous": "Предыдущий",
+    "profile": "Профиль",
+    "save": "Сохранять",
+    "search": "Поиск",
+    "settings": "Настройки",
+    "signUp": "Регистрация",
+  },
+}
+`;

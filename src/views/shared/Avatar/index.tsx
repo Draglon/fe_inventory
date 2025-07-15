@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { GearFill } from "react-bootstrap-icons";
@@ -17,7 +18,11 @@ const Avatar = () => {
           data-testid="avatarImg"
         />
       </div>
-      <Button variant="light" className="avatar__button">
+      <Button
+        variant="light"
+        className="avatar__button"
+        data-testid="avatarButtonSettings"
+      >
         <GearFill size={14} />
       </Button>
     </div>

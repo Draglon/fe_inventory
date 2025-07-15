@@ -2,7 +2,6 @@
 import { Container } from "react-bootstrap";
 
 import GuestHeader from "@/views/layouts/headers/GuestHeader";
-import Sidebar from "@/views/shared/Sidebar";
 // import ModalRoot from "@/views/shared/ModalRoot";
 
 type Props = {
@@ -14,10 +13,7 @@ const GuestLayout = ({ children }: Props) => {
     <>
       <GuestHeader />
       <Container fluid className="layout">
-        <main className="page__main">
-          <Sidebar />
-          {children}
-        </main>
+        <main className="page__main">{children}</main>
         {/* <ModalRoot /> */}
       </Container>
     </>

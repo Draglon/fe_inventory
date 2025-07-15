@@ -9,18 +9,12 @@ import Button from "@/views/shared/bootstrap/Button";
 
 type RemoveParishModalProps = {
   title: string;
-  product: {
-    title: string;
-    photo: string;
-    serialNumber?: string;
-    isNew: number;
-  };
-  onRemove?: () => void;
+  onRemove: () => void;
 };
 
 const RemoveParishModal = ({ title, onRemove }: RemoveParishModalProps) => {
   const dispatch = useAppDispatch();
-  const t = useTranslations("shared");
+  const t = useTranslations();
 
   const onCloseModal = () => {
     dispatch(hideModalAction());
@@ -49,17 +43,19 @@ const RemoveParishModal = ({ title, onRemove }: RemoveParishModalProps) => {
           size="lg"
           variant="link"
           onClick={onCloseModal}
+          data-testid="handleClose"
         >
-          {t("cancel")}
+          {t("shared.cancel")}
         </Button>
         <Button
           className="modal__button--danger"
           size="lg"
           variant="light"
           onClick={onRemove}
+          data-testid="handleRemove"
         >
           <Trash size="14" />
-          <span>{t("delete")}</span>
+          <span>{t("shared.delete")}</span>
         </Button>
       </Modal.Footer>
     </Modal>

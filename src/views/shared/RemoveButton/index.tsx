@@ -9,7 +9,12 @@ type RemoveButtonProps = {
 
 const RemoveButton = ({ onClick }: RemoveButtonProps) => {
   return (
-    <Button className="btn-remove" variant="link" onClick={onClick}>
+    <Button
+      className="btn-remove"
+      variant="link"
+      onClick={onClick}
+      data-testid="btnRemove"
+    >
       <Trash className="icon-remove" size="14" />
     </Button>
   );

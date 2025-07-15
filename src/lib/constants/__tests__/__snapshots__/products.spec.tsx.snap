@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`products constants match snapshot 1`] = `
+{
+  "PRODUCTS": [
+    {
+      "date": "2017-06-29 12:09:33",
+      "fullName": null,
+      "group": "Длинное предлинное длиннючее название группы",
+      "guarantee": {
+        "end": "2017-06-29 12:09:33",
+        "start": "2017-06-29 12:09:33",
+      },
+      "id": "1",
+      "isNew": 1,
+      "order": 1,
+      "parish": "Длинное предлинное длиннючее название прихода",
+      "photo": {
+        "blurDataURL": "data:image/png;base64,imagedata",
+        "height": 40,
+        "src": "/img.jpg",
+        "width": 40,
+      },
+      "price": [
+        {
+          "isDefault": 0,
+          "symbol": "USD",
+          "value": 100,
+        },
+        {
+          "isDefault": 1,
+          "symbol": "UAH",
+          "value": 2600,
+        },
+      ],
+      "serialNumber": "SN-12.3456789",
+      "specification": "Specification 1",
+      "status": "В наличии",
+      "title": "Product 1",
+      "type": "Monitors",
+    },
+    {
+      "date": "2017-06-29 12:09:33",
+      "fullName": "John Smith",
+      "group": "Длинное предлинное длиннючее название группы",
+      "guarantee": {
+        "end": "2017-06-29 12:09:33",
+        "start": "2017-06-29 12:09:33",
+      },
+      "id": "2",
+      "isNew": 0,
+      "order": 1,
+      "parish": "Длинное предлинное длиннючее название прихода",
+      "photo": {
+        "blurDataURL": "data:image/png;base64,imagedata",
+        "height": 40,
+        "src": "/img.jpg",
+        "width": 40,
+      },
+      "price": [
+        {
+          "isDefault": 0,
+          "symbol": "USD",
+          "value": 100,
+        },
+        {
+          "isDefault": 1,
+          "symbol": "UAH",
+          "value": 2600,
+        },
+      ],
+      "serialNumber": "SN-12.3456789",
+      "specification": "Specification 1",
+      "status": "В ремонте",
+      "title": "Інтерактивна панель Promethean ActivPanel LX 75 з модулем OPS-A",
+      "type": "Monitors",
+    },
+    {
+      "date": "2017-06-29 12:09:33",
+      "fullName": null,
+      "group": "Длинное предлинное длиннючее название группы",
+      "guarantee": {
+        "end": "2017-06-29 12:09:33",
+        "start": "2017-06-29 12:09:33",
+      },
+      "id": "3",
+      "isNew": 0,
+      "order": 1,
+      "parish": "Длинное предлинное длиннючее название прихода",
+      "photo": {
+        "blurDataURL": "data:image/png;base64,imagedata",
+        "height": 40,
+        "src": "/img.jpg",
+        "width": 40,
+      },
+      "price": [
+        {
+          "isDefault": 0,
+          "symbol": "USD",
+          "value": 100,
+        },
+        {
+          "isDefault": 1,
+          "symbol": "UAH",
+          "value": 2600,
+        },
+      ],
+      "serialNumber": "SN-12.3456789",
+      "specification": "Specification 1",
+      "status": "В ремонте",
+      "title": "Інтерактивна панель Promethean ActivPanel LX 75 з модулем OPS-A",
+      "type": "Monitors",
+    },
+  ],
+}
+`;

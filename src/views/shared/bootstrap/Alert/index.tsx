@@ -3,10 +3,7 @@ import clsx from "clsx";
 import { Alert as BootstrapAlert } from "react-bootstrap";
 
 type AlertProps = {
-  id?: string;
-  key?: string;
   className?: string;
-  show?: boolean;
   variant?:
     | "primary"
     | "secondary"
@@ -16,25 +13,20 @@ type AlertProps = {
     | "info"
     | "dark"
     | "light";
-  onClose?: () => void;
   children: React.ReactNode;
 };
 
 function Alert({
-  id,
-  key,
-  show,
-  variant = "primary",
-  children,
   className,
+  children,
+  variant = "primary",
+  ...props
 }: AlertProps) {
   return (
     <BootstrapAlert
-      id={id}
-      key={key}
-      show={show}
       variant={variant}
       className={clsx("alert", className)}
+      {...props}
     >
       {children}
     </BootstrapAlert>

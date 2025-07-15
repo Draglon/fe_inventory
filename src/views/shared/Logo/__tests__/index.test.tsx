@@ -11,6 +11,7 @@ describe("Logo", () => {
       renderComponent();
 
       expect(screen.getByTestId("logoImg")).toHaveClass("logo__img");
+      expect(screen.getByText("INVENTORY")).toBeInTheDocument();
     });
   });
 });

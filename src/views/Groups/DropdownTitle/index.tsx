@@ -7,7 +7,11 @@ const DropdownTitle = () => {
   return (
     <div className="groups__dropdown-content">
       <div className="groups__dropdown-list">
-        <Button className="groups__dropdown-button-list" variant="outline-dark">
+        <Button
+          className="groups__dropdown-button-list"
+          variant="outline-dark"
+          data-testid="btnList"
+        >
           <ListUl className="groups__dropdown-icon-list" size="24" />
         </Button>
       </div>

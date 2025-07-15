@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`en locale matches snapshot 1`] = `
+{
+  "Groups": {
+    "addProduct": "Add product",
+    "layout": {
+      "description": "Groups - description",
+      "title": "Groups",
+    },
+    "title": "Groups",
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ru {Russian} ua {Ukrainian} en {English} other {Unknown}}",
+  },
+  "Login": {
+    "layout": {
+      "description": "Login - description",
+      "title": "Login",
+    },
+    "title": "Login",
+  },
+  "Navigation": {
+    "groups": "Groups",
+    "parishes": "Parishes",
+    "products": "Products",
+    "settings": "Settings",
+    "users": "Users",
+  },
+  "Parishes": {
+    "layout": {
+      "description": "Parishes page - description",
+      "title": "Parishes page",
+    },
+    "title": "Parishes",
+  },
+  "Products": {
+    "layout": {
+      "description": "Products page - description",
+      "title": "Products page",
+    },
+    "title": "Products",
+  },
+  "Settings": {
+    "layout": {
+      "description": "Settings - description",
+      "title": "Settings",
+    },
+    "title": "Settings",
+  },
+  "Users": {
+    "layout": {
+      "description": "Users - description",
+      "title": "Users",
+    },
+    "title": "Users",
+  },
+  "shared": {
+    "add": "Add",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "create": "Create",
+    "delete": "Delete",
+    "logIn": "Log in",
+    "logout": "Log out",
+    "modal": {
+      "removeParish": {
+        "title": "Are you sure you want to remove this parish?",
+      },
+      "removeProduct": {
+        "title": "Are you sure you want to remove this product?",
+      },
+    },
+    "next": "Next",
+    "previous": "Previous",
+    "profile": "Profile",
+    "save": "Save",
+    "search": "Search",
+    "settings": "Settings",
+    "signUp": "Sign up",
+  },
+}
+`;

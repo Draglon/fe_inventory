@@ -1,3 +1,4 @@
+"use client";
 import { Nav } from "react-bootstrap";
 
 import NavigationItem from "@/views/shared/NavigationItem";

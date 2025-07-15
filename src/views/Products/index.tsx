@@ -6,11 +6,11 @@ import ProductsFilter from "@/views/Products/Filter";
 import ProductsList from "@/views/Products/List";
 
 const Products = () => {
-  const t = useTranslations("Products");
+  const t = useTranslations();
 
   return (
     <div className="page">
-      <PageHeader title={t("title")} quantity={25}>
+      <PageHeader title={t("Products.title")} quantity={25}>
         <ProductsFilter />
       </PageHeader>
       <ProductsList />

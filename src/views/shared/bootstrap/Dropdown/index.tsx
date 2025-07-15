@@ -1,5 +1,6 @@
 "use client";
 import clsx from "clsx";
+import { title } from "process";
 import React from "react";
 import {
   Dropdown as bootstrapDropdown,
@@ -28,30 +29,30 @@ type DropdownProps = {
   drop?: "up" | "up-centered" | "start" | "end" | "down" | "down-centered";
   variant?: "primary" | "secondary" | "success" | "info" | "warning" | "danger";
   className?: string;
-  title: React.ReactNode;
   onSelect?: () => void;
   onToggle?: () => void;
+  title: React.ReactNode;
   children?: React.ReactNode;
 };
 
 function Dropdown({
-  id,
+  title,
   drop = "down",
   variant = "primary",
-  title,
   items,
   className,
-  children = <></>,
+  children,
+  ...props
 }: DropdownProps) {
   return (
     <BootstrapSplitButton
-      id={id}
-      drop={drop}
-      className={clsx("alert", className)}
       title={title}
+      drop={drop}
+      className={clsx("dropdown", className)}
       variant={variant}
+      {...props}
     >
-      {children}
+      {children && children}
       {items.map((item) => (
         <>
           {item?.devider ? (

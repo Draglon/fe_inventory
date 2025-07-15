@@ -9,14 +9,18 @@ type DropdownHeaderProps = {
 };
 
 const DropdownHeader = ({ title }: DropdownHeaderProps) => {
-  const t = useTranslations("Groups");
+  const t = useTranslations();
 
   return (
     <header className="groups__dropdown-header">
       <h3 className="groups__dropdown-title">{title}</h3>
-      <Button className="groups__dropdown-button-plus" variant="link">
-        <Plus size={24} className="groups__dropdown-icon-plus" />
-        <span className="groups__dropdown-text">{t("addProduct")}</span>
+      <Button
+        className="groups__dropdown-button-plus"
+        variant="link"
+        data-testid="button-plus"
+      >
+        <Plus className="groups__dropdown-icon-plus" size={24} />
+        <span className="groups__dropdown-text">{t("Groups.addProduct")}</span>
       </Button>
     </header>
   );

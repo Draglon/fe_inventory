@@ -18,11 +18,28 @@ function Input({
   size,
   placeholder,
   className,
+  ...props
 }: InputProps) {
   return (
-    <div className={clsx("input-field", className)}>
-      {label && <Form.Label htmlFor={id}>{label}</Form.Label>}
-      <Form.Control id={id} type={type} size={size} placeholder={placeholder} />
+    <div className={clsx("input-field", className)} data-testid="inputField">
+      {label && (
+        <Form.Label
+          htmlFor={id}
+          className="input-field__label"
+          data-testid="inputLabel"
+        >
+          {label}
+        </Form.Label>
+      )}
+      <Form.Control
+        id={id}
+        type={type}
+        size={size}
+        placeholder={placeholder}
+        className="input-field__input"
+        data-testid="input"
+        {...props}
+      />
     </div>
   );
 }

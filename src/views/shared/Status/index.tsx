@@ -8,7 +8,10 @@ type ProductStatusProps = {
 
 const ProductStatus = ({ active, status }: ProductStatusProps) => {
   return (
-    <span className={clsx("status", { "status--active": active })}>
+    <span
+      className={clsx("status", { "status--active": active })}
+      data-testid="productStatus"
+    >
       {status}
     </span>
   );

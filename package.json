@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage"
   },
   "dependencies": {
     "bootstrap": "^5.3.7",
@@ -39,8 +40,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
     "eslint-config-prettier": "^10.1.2",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
     "json-api-normalizer": "^1.0.4",
     "luxon": "^3.6.1",
     "next-intl": "^4.0.2",

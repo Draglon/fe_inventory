@@ -19,11 +19,11 @@ const PageHeader = ({
   return (
     <header className="page__header">
       {withAddButton && (
-        <Button className="plus__button">
+        <Button className="btn-plus" data-testid="btnPlus">
           <Plus size={18} />
         </Button>
       )}
-      <h1 className="filter__title">
+      <h1 className="page__title">
         {title}
         {quantity && ` / ${quantity}`}
       </h1>

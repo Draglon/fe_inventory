@@ -1,16 +1,20 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
-import Logo from "../";
+import RemoveButton from "../";
 
-describe("Logo", () => {
+describe("RemoveButton", () => {
   describe("renders component", () => {
-    const renderComponent = () => render(<Logo />);
+    const defaultProps = {
+      onClick: () => {},
+    };
+    const renderComponent = (props = defaultProps) =>
+      render(<RemoveButton {...props} />);
 
     it("with default props", () => {
       renderComponent();
 
-      expect(screen.getByTestId("logoImg")).toHaveClass("logo__img");
+      expect(screen.getByTestId("btnRemove")).toHaveClass("btn-remove");
     });
   });
 });

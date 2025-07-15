@@ -8,7 +8,6 @@ type SelectProps = {
   type?: "text" | "password";
   size?: "sm" | "lg";
   disabled?: boolean;
-  placeholder?: string;
   className?: string;
   options: {
     key: string;
@@ -23,18 +22,26 @@ function Select({
   className,
   disabled,
   options,
+  ...props
 }: SelectProps) {
   return (
-    <div className="select__field">
+    <div className={clsx("select-field", className)} data-testid="selectField">
       {label && (
-        <Form.Label htmlFor={id} className="select__label">
+        <Form.Label
+          htmlFor={id}
+          className="select-field__label"
+          data-testid="selectLabel"
+        >
           {label}
         </Form.Label>
       )}
       <Form.Select
-        className={clsx("select", className)}
+        id={id}
         size={size}
         disabled={disabled}
+        className="select-field__select"
+        data-testid="select"
+        {...props}
       >
         {options.map(({ key, value }) => (
           <option key={key}>{value}</option>

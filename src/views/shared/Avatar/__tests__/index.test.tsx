@@ -1,16 +1,19 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
-import Logo from "../";
+import Avatar from "../";
 
-describe("Logo", () => {
+describe("Avatar", () => {
   describe("renders component", () => {
-    const renderComponent = () => render(<Logo />);
+    const renderComponent = () => render(<Avatar />);
 
     it("with default props", () => {
       renderComponent();
 
-      expect(screen.getByTestId("logoImg")).toHaveClass("logo__img");
+      expect(screen.getByTestId("avatarImg")).toHaveClass("avatar__img");
+      expect(screen.getByTestId("avatarButtonSettings")).toHaveClass(
+        "avatar__button"
+      );
     });
   });
 });

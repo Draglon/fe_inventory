@@ -14,15 +14,15 @@ type RemoveModalProps = {
   product: {
     title: string;
     photo: string;
-    serialNumber?: string;
-    isNew: number;
+    serialNumber: string;
+    isNew: number | boolean;
   };
-  onRemove?: () => void;
+  onRemove: () => void;
 };
 
 const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
   const dispatch = useAppDispatch();
-  const t = useTranslations("shared");
+  const t = useTranslations();
 
   const onCloseModal = () => {
     dispatch(hideModalAction());
@@ -32,10 +32,10 @@ const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
     <Modal
       className="modal"
       size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
       centered
       show={true}
       onHide={onCloseModal}
+      aria-labelledby="contained-modal-title-vcenter"
     >
       <Modal.Header className="modal__header" closeButton>
         <Modal.Title
@@ -48,19 +48,23 @@ const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
       <Modal.Body className="modal__body">
         <div className="product">
           <div className="product__active">
-            <div className={clsx("indicator", { active: product.isNew })} />
+            <div
+              className={clsx("indicator", {
+                indicator__active: product?.isNew,
+              })}
+            />
           </div>
           <div className="product__image">
             <Image
-              src={product.photo}
-              alt={product.title}
+              src={product?.photo}
+              alt={product?.title}
               width="36"
               height="43"
             />
           </div>
           <div className="product__description">
-            <h4 className="product__title">{product.title}</h4>
-            <div className="product__serialNumber">{product.serialNumber}</div>
+            <h4 className="product__title">{product?.title}</h4>
+            <div className="product__serialNumber">{product?.serialNumber}</div>
           </div>
         </div>
       </Modal.Body>
@@ -71,7 +75,7 @@ const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
           variant="link"
           onClick={onCloseModal}
         >
-          {t("cancel")}
+          {t("shared.cancel")}
         </Button>
         <Button
           className="modal__button--danger"
@@ -80,7 +84,7 @@ const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
           onClick={onRemove}
         >
           <Trash size="14" />
-          <span>{t("delete")}</span>
+          <span>{t("shared.delete")}</span>
         </Button>
       </Modal.Footer>
     </Modal>

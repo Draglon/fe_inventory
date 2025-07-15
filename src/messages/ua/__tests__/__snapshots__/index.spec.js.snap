@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ua locale matches snapshot 1`] = `
+{
+  "Groups": {
+    "addProduct": "Додати продукт",
+    "layout": {
+      "description": "Групи - опис",
+      "title": "Групи",
+    },
+    "title": "Групи",
+  },
+  "LocaleSwitcher": {
+    "label": "Вибрати мову",
+    "locale": "{locale, select, ru {Російська} ua {Українська} en {Англійська} other {Unknown}}",
+  },
+  "Login": {
+    "layout": {
+      "description": "Вхід - опис",
+      "title": "Вхід",
+    },
+    "title": "Вхід",
+  },
+  "Navigation": {
+    "groups": "Групи",
+    "parishes": "Парафія",
+    "products": "Продукти",
+    "settings": "Налаштування",
+    "users": "Користувачі",
+  },
+  "Parishes": {
+    "layout": {
+      "description": "Парафія - опис",
+      "title": "Парафія",
+    },
+    "title": "Парафія",
+  },
+  "Products": {
+    "layout": {
+      "description": "Продукти",
+      "title": "Продукти",
+    },
+    "title": "Продукти",
+  },
+  "Settings": {
+    "layout": {
+      "description": "Налаштування - опис",
+      "title": "Налаштування",
+    },
+    "title": "Налаштування",
+  },
+  "Users": {
+    "layout": {
+      "description": "Користувачі - опис",
+      "title": "Користувачі",
+    },
+    "title": "Користувачі",
+  },
+  "shared": {
+    "add": "Додати",
+    "cancel": "Відмінити",
+    "confirm": "Підтвердити",
+    "create": "Створити",
+    "logIn": "Увійти",
+    "logout": "Вийти",
+    "modal": {
+      "removeParish": {
+        "title": "Ви впевнені, що хочете видалити цю парафію?",
+      },
+      "removeProduct": {
+        "title": "Ви впевнені, що хочете видалити цей продукт?",
+      },
+    },
+    "next": "Наступний",
+    "previous": "Попередній",
+    "profile": "Профіль",
+    "save": "Зберегти",
+    "search": "Пошук",
+    "settings": "Налаштування",
+    "signUp": "Реєстрація",
+  },
+}
+`;

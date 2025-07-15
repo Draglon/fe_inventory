@@ -11,7 +11,7 @@ import Indicator from "@/views/shared/Indicator";
 import RemoveButton from "@/views/shared/RemoveButton";
 
 const Products = () => {
-  const t = useTranslations("shared");
+  const t = useTranslations();
   const dispatch = useAppDispatch();
 
   const showModal = (item: any) => () => {
@@ -19,7 +19,7 @@ const Products = () => {
       showModalAction({
         modalType: "REMOVE_MODAL",
         modalProps: {
-          title: t("modal.removeProduct.title"),
+          title: t("shared.modal.removeProduct.title"),
           product: item,
           onRemove: () => {},
         },

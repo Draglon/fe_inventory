@@ -7,7 +7,7 @@ import Logo from "@/views/shared/Logo";
 import Input from "@/views/shared/bootstrap/Input";
 
 const UserHeader = () => {
-  const t = useTranslations("shared");
+  const t = useTranslations();
 
   return (
     <header className="header">
@@ -19,7 +19,7 @@ const UserHeader = () => {
           <Input
             id="search"
             size="sm"
-            placeholder={t("search")}
+            placeholder={t("shared.search")}
             className="input-search"
           />
         </Col>

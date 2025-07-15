@@ -52,7 +52,7 @@ export default async function RootLayout({ children, params }: Props) {
       >
         <body>
           <Providers>
-            <NextIntlClientProvider messages={messages}>
+            <NextIntlClientProvider messages={messages} locale={locale}>
               {children}
             </NextIntlClientProvider>
           </Providers>

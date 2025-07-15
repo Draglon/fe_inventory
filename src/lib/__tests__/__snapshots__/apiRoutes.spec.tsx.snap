@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`apiRoutes constants match snapshot 1`] = `
+{
+  "authLoginRoute": "/auth/login",
+  "authRegistrationRoute": "/auth/register",
+  "authUserRoute": "/auth/user",
+}
+`;

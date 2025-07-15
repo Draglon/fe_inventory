@@ -9,11 +9,11 @@ import DropdownTitle from "@/views/Groups/DropdownTitle";
 import DropdownItem from "@/views/Groups/DropdownItem";
 
 const Groups = () => {
-  const t = useTranslations("Groups");
+  const t = useTranslations();
 
   return (
     <div className="page">
-      <PageHeader title={t("title")} quantity={25} withAddButton />
+      <PageHeader title={t("Groups.title")} quantity={25} withAddButton />
 
       <section className="groups">
         {GROUPS.map((group) => (

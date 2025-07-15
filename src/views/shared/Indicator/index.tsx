@@ -6,7 +6,12 @@ type IndicatorProps = {
 };
 
 const Indicator = ({ active }: IndicatorProps) => {
-  return <div className={clsx("indicator", { "indicator--active": active })} />;
+  return (
+    <div
+      className={clsx("indicator", { "indicator--active": active })}
+      data-testid="indicator"
+    />
+  );
 };
 
 export default Indicator;
