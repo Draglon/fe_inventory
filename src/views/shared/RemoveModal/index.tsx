@@ -1,15 +1,15 @@
 "use client";
 import Image from "next/image";
-import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import { Modal } from "react-bootstrap";
 import { Trash } from "react-bootstrap-icons";
 
 import { useAppDispatch } from "@/store/hooks";
 import { hideModal as hideModalAction } from "@/store/modal/actions";
+import Indicator from "@/views/shared/Indicator";
 import Button from "@/views/shared/bootstrap/Button";
 
-type RemoveModalProps = {
+type RemoveProductModalProps = {
   title: string;
   product: {
     title: string;
@@ -20,7 +20,11 @@ type RemoveModalProps = {
   onRemove: () => void;
 };
 
-const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
+const RemoveProductModal = ({
+  title,
+  product,
+  onRemove,
+}: RemoveProductModalProps) => {
   const dispatch = useAppDispatch();
   const t = useTranslations();
 
@@ -48,11 +52,7 @@ const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
       <Modal.Body className="modal__body">
         <div className="product">
           <div className="product__active">
-            <div
-              className={clsx("indicator", {
-                indicator__active: product?.isNew,
-              })}
-            />
+            <Indicator active={product?.isNew} />
           </div>
           <div className="product__image">
             <Image
@@ -74,6 +74,7 @@ const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
           size="lg"
           variant="link"
           onClick={onCloseModal}
+          data-testid="handleClose"
         >
           {t("shared.cancel")}
         </Button>
@@ -82,6 +83,7 @@ const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
           size="lg"
           variant="light"
           onClick={onRemove}
+          data-testid="handleRemove"
         >
           <Trash size="14" />
           <span>{t("shared.delete")}</span>
@@ -91,4 +93,4 @@ const RemoveModal = ({ title, product, onRemove }: RemoveModalProps) => {
   );
 };
 
-export default RemoveModal;
+export default RemoveProductModal;

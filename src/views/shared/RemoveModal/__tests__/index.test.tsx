@@ -1,12 +1,12 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
-import RemoveModal from "../";
+import RemoveProductModal from "../";
 
 const mockDispatch = jest.fn();
-jest.mock("react-redux", () => ({
-  ...jest.requireActual("react-redux"),
-  useDispatch: () => mockDispatch,
+jest.mock("../../../../store/hooks", () => ({
+  ...jest.requireActual("../../../../store/hooks"),
+  useAppDispatch: () => mockDispatch,
 }));
 
 jest.mock("next-intl", () => ({
@@ -19,26 +19,29 @@ jest.mock("next-intl", () => ({
   }),
 }));
 
-describe("RemoveModal", () => {
+describe("RemoveProductModal", () => {
   describe("renders component", () => {
     const defaultProps = {
-      title: "Title",
+      title: "Modal title",
       product: {
         title: "Product title",
         photo: "/product_photo_src.png",
-        serialNumber: "serial number",
+        serialNumber: "Serial number",
         isNew: false,
       },
       onRemove: jest.fn(),
     };
 
     const renderComponent = (props = defaultProps) =>
-      render(<RemoveModal {...props} />);
+      render(<RemoveProductModal {...props} />);
 
     it("with default props", () => {
       renderComponent();
 
       expect(screen.getByText("Modal title")).toBeInTheDocument();
+      expect(screen.getByText("Product title")).toBeInTheDocument();
+      expect(screen.getByText("Serial number")).toBeInTheDocument();
+      expect(screen.getByTestId("indicator")).toBeInTheDocument();
       expect(screen.getByTestId("handleClose")).toHaveTextContent("Cancel");
       expect(screen.getByTestId("handleRemove")).toHaveTextContent("Delete");
     });

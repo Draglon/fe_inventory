@@ -4,9 +4,9 @@ import { render, screen } from "@testing-library/react";
 import RemoveParishModal from "../";
 
 const mockDispatch = jest.fn();
-jest.mock("react-redux", () => ({
-  ...jest.requireActual("react-redux"),
-  useDispatch: () => mockDispatch,
+jest.mock("../../../../store/hooks", () => ({
+  ...jest.requireActual("../../../../store/hooks"),
+  useAppDispatch: () => mockDispatch,
 }));
 
 jest.mock("next-intl", () => ({
