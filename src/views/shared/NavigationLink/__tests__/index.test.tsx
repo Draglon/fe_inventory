@@ -46,7 +46,6 @@ describe("NavigationLink", () => {
       usePathname.mockImplementation(() => "/home");
       renderComponent();
 
-      screen.debug();
       expect(screen.getByTestId("link")).toHaveTextContent("Link text");
       expect(screen.getByTestId("link")).toHaveClass("link");
       expect(screen.getByTestId("link")).not.toHaveClass("active");

@@ -25,8 +25,6 @@ describe("Indicator", () => {
       const props = { ...defaultProps, active: true };
       renderComponent(props);
 
-      screen.debug();
-
       expect(screen.getByTestId("indicator")).toHaveClass("indicator");
       expect(screen.getByTestId("indicator")).toHaveClass("indicator--active");
     });
