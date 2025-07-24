@@ -4,12 +4,10 @@ import { Form } from "react-bootstrap";
 import * as formik from "formik";
 
 import { useRouter } from "@/i18n/navigation";
-import { ordersRoute } from "@/lib/routes";
-import loginSchema from "@/lib/yupLocalised/schemas/login";
+import { loginRoute } from "@/lib/routes";
+import registrationSchema from "@/lib/yupLocalised/schemas/registration";
+import fetchRegister from "@/store/auth/operations/fetchRegister";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import fetchAuth from "@/store/auth/operations/fetchAuth";
-import { isLoadingSelector } from "@/store/auth/selectors";
-import GuestLayout from "@/views/layouts/GuestLayout";
 import Button from "@/views/shared/bootstrap/Button";
 
 type FieldsProps = {
@@ -17,29 +15,32 @@ type FieldsProps = {
   password: string;
 };
 
-const Login = () => {
+const Registration = () => {
   const t = useTranslations();
   const locale = useLocale();
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(isLoadingSelector);
   const { Formik } = formik;
 
   const onSubmit = async (values: FieldsProps) => {
-    const data = await dispatch(fetchAuth(values));
+    const data = await dispatch(fetchRegister(values));
+
+    if (!data.payload) {
+      return alert("Не удалось зарегистрироваться");
+    }
 
     if ("token" in data.payload) {
       localStorage.setItem("token", data.payload.token);
-      router.push(ordersRoute, { locale });
+      router.push(loginRoute, { locale });
     }
   };
 
   return (
-    <GuestLayout>
-      <h1>{t("Login.title")}</h1>
+    <>
+      <h1>{t("Registration.title")}</h1>
 
       <Formik
-        validationSchema={loginSchema}
+        validationSchema={registrationSchema}
         onSubmit={onSubmit}
         initialValues={{
           email: "",
@@ -68,14 +69,12 @@ const Login = () => {
                 isValid={touched.password && !errors.password}
               />
             </Form.Group>
-            <Button type="submit" disabled={isLoading}>
-              {t("shared.logIn")}
-            </Button>
+            <Button type="submit">{t("shared.signUp")}</Button>
           </Form>
         )}
       </Formik>
-    </GuestLayout>
+    </>
   );
 };
 
-export default Login;
+export default Registration;

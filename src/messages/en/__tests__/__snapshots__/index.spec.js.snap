@@ -23,17 +23,17 @@ exports[`en locale matches snapshot 1`] = `
   },
   "Navigation": {
     "groups": "Groups",
-    "parishes": "Parishes",
+    "orders": "Orders",
     "products": "Products",
     "settings": "Settings",
     "users": "Users",
   },
-  "Parishes": {
+  "Orders": {
     "layout": {
-      "description": "Parishes page - description",
-      "title": "Parishes page",
+      "description": "Orders page - description",
+      "title": "Orders page",
     },
-    "title": "Parishes",
+    "title": "Orders",
   },
   "Products": {
     "layout": {

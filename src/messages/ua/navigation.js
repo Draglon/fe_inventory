@@ -1,6 +1,6 @@
 const navigation = {
   "Navigation": {
-    "parishes": "Парафія",
+    "orders": "Замовлення",
     "groups": "Групи",
     "products": "Продукти",
     "users": "Користувачі",

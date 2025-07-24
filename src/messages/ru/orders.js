@@ -1,5 +1,5 @@
-const parishes = {
-  "Parishes": {
+const orders = {
+  "Orders": {
     "layout": {
       "title": "Приходы",
       "description": "Приходы - описание",
@@ -8,4 +8,4 @@ const parishes = {
   },
 };
 
-export default parishes;
+export default orders;

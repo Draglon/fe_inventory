@@ -1,22 +1,30 @@
+import {
+  ordersRoute,
+  groupsRoute,
+  productsRoute,
+  usersRoute,
+  settingsRoute,
+} from "@/lib/routes";
+
 export const NAVIGATION_MENU = [
   {
-    href: "/parishes",
-    text: "Navigation.parishes",
+    href: ordersRoute,
+    text: "Navigation.orders",
   },
   {
-    href: "/groups",
+    href: groupsRoute,
     text: "Navigation.groups",
   },
   {
-    href: "/products",
+    href: productsRoute,
     text: "Navigation.products",
   },
   {
-    href: "/users",
+    href: usersRoute,
     text: "Navigation.users",
   },
   {
-    href: "/settings",
+    href: settingsRoute,
     text: "Navigation.settings",
   },
 ];

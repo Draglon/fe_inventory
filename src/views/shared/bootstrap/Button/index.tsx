@@ -24,7 +24,8 @@ type ButtonProps = {
     | "outline-light";
   children: React.ReactNode;
   className?: string;
-  onClick: () => void;
+  disabled?: boolean;
+  onClick?: () => void;
 };
 
 function Button({
@@ -32,6 +33,7 @@ function Button({
   variant = "primary",
   className,
   children,
+  disabled,
   onClick,
   ...props
 }: ButtonProps) {
@@ -41,6 +43,7 @@ function Button({
       type={type}
       variant={variant}
       onClick={onClick}
+      disabled={disabled}
       {...props}
     >
       {children}

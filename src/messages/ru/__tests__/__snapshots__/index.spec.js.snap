@@ -23,12 +23,12 @@ exports[`ru locale matches snapshot 1`] = `
   },
   "Navigation": {
     "groups": "Группы",
-    "parishes": "Приходы",
+    "orders": "Приходы",
     "products": "Продукты",
     "settings": "Настройки",
     "users": "Пользователи",
   },
-  "Parishes": {
+  "Orders": {
     "layout": {
       "description": "Приходы - описание",
       "title": "Приходы",

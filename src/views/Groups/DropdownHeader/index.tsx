@@ -18,6 +18,7 @@ const DropdownHeader = ({ title }: DropdownHeaderProps) => {
         className="groups__dropdown-button-plus"
         variant="link"
         data-testid="button-plus"
+        onClick={() => {}}
       >
         <Plus className="groups__dropdown-icon-plus" size={24} />
         <span className="groups__dropdown-text">{t("Groups.addProduct")}</span>

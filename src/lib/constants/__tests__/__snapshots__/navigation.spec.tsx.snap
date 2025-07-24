@@ -4,8 +4,8 @@ exports[`navigation constants match snapshot 1`] = `
 {
   "NAVIGATION_MENU": [
     {
-      "href": "/parishes",
-      "text": "Navigation.parishes",
+      "href": "/orders",
+      "text": "Navigation.orders",
     },
     {
       "href": "/groups",

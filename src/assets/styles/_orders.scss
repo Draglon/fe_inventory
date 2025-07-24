@@ -1,14 +1,14 @@
-.parishes {
+.orders {
   box-sizing: border-box;
   overflow: auto;
 }
 
-.parishes__table {
+.orders__table {
 	border-spacing: 0 15px;
 	border-collapse: separate;
 }
 
-.parishes__item {
+.orders__item {
   box-shadow: 0 5px 15px var(--transparent);
   transition: box-shadow .3s;
 
@@ -35,7 +35,7 @@
   }
 }
 
-.parishes__link {
+.orders__link {
   color: var(--grey);
   border-bottom: 1px solid var(--grey-lighter);
   font-size: 18px;
@@ -48,7 +48,7 @@
   }
 }
 
-.parishes__button-list {
+.orders__button-list {
   color: var(--grey);
   border: 1px solid var(--grey-light);
   border-radius: 50%;
@@ -61,47 +61,47 @@
   transition: all .3s;
 }
 
-.parishes__quantity {
+.orders__quantity {
   color: var(--grey);
   font-size: 18px;
 }
 
-.parishes__text {
+.orders__text {
   color: var(--grey-light);
   font-size: 14px;
 }
 
-.parishes__date {
+.orders__date {
   text-align: center;
 }
 
-.parishes__date-short {
+.orders__date-short {
   color: var(--grey-light);
   font-size: 10px;
 }
 
-.parishes__date-long {
+.orders__date-long {
   color: var(--grey);
   font-size: 12px;
 }
 
-.parishes__price-usd {
+.orders__price-usd {
   color: var(--grey-light);
   font-size: 10px;
 }
 
-.parishes__price-uah {
+.orders__price-uah {
   color: var(--grey);
   font-size: 14px;
 }
 
-.parishes__remove {
+.orders__remove {
   padding: 15px;
   vertical-align: middle;
   text-align: center;
 }
 
-.parishes__icon-remove {
+.orders__icon-remove {
   color: var(--grey);
   cursor: pointer;
 

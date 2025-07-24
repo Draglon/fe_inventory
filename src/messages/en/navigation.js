@@ -1,6 +1,6 @@
 const navigation = {
   "Navigation": {
-    "parishes": "Parishes",
+    "orders": "Orders",
     "groups": "Groups",
     "products": "Products",
     "users": "Users",

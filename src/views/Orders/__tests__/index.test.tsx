@@ -1,12 +1,12 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
-import Parishes from "../index";
+import Orders from "../index";
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
     const translation = {
-      "Parishes.title": "Parishes",
+      "Orders.title": "Orders",
     };
     return translation[key] || key;
   }),
@@ -15,7 +15,7 @@ jest.mock("next-intl", () => ({
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "mock-parishes-list": React.DetailedHTMLProps<
+      "mock-orders-list": React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       >;
@@ -24,19 +24,19 @@ declare global {
 }
 
 jest.mock("../List", () => () => (
-  <mock-parishes-list data-testid="parishes-list" />
+  <mock-orders-list data-testid="orders-list" />
 ));
 
-describe("Parishes", () => {
+describe("Orders", () => {
   describe("renders component", () => {
-    const renderComponent = () => render(<Parishes />);
+    const renderComponent = () => render(<Orders />);
 
     it("with default props", () => {
       renderComponent();
 
       expect(screen.getByTestId("btnPlus")).toBeInTheDocument();
-      expect(screen.getByTestId("parishes-list")).toBeInTheDocument();
-      expect(screen.getByText("Parishes / 25")).toBeInTheDocument();
+      expect(screen.getByTestId("orders-list")).toBeInTheDocument();
+      expect(screen.getByText("Orders / 25")).toBeInTheDocument();
     });
   });
 });

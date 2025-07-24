@@ -10,7 +10,6 @@ jest.mock("next-intl", () => ({
     };
     return translation[key] || key;
   }),
-  // useLocale:
 }));
 
 jest.mock("next/router", () => ({

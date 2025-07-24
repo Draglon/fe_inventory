@@ -23,17 +23,17 @@ exports[`ua locale matches snapshot 1`] = `
   },
   "Navigation": {
     "groups": "Групи",
-    "parishes": "Парафія",
+    "orders": "Замовлення",
     "products": "Продукти",
     "settings": "Налаштування",
     "users": "Користувачі",
   },
-  "Parishes": {
+  "Orders": {
     "layout": {
-      "description": "Парафія - опис",
-      "title": "Парафія",
+      "description": "Замовлення - опис",
+      "title": "Замовлення",
     },
-    "title": "Парафія",
+    "title": "Замовлення",
   },
   "Products": {
     "layout": {

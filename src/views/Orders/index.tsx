@@ -2,17 +2,17 @@
 import { useTranslations } from "next-intl";
 
 import PageHeader from "@/views/shared/PageHeader";
-import ParishesList from "@/views/Parishes/List";
+import OrdersList from "@/views/Orders/List";
 
-const Parishes = () => {
+const Orders = () => {
   const t = useTranslations();
 
   return (
     <div className="page">
-      <PageHeader title={t("Parishes.title")} quantity={25} withAddButton />
-      <ParishesList />
+      <PageHeader title={t("Orders.title")} quantity={25} withAddButton />
+      <OrdersList />
     </div>
   );
 };
 
-export default Parishes;
+export default Orders;
