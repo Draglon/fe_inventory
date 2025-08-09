@@ -36,44 +36,51 @@ const Login = () => {
 
   return (
     <GuestLayout>
-      <h1>{t("Login.title")}</h1>
-
-      <Formik
-        validationSchema={loginSchema}
-        onSubmit={onSubmit}
-        initialValues={{
-          email: "",
-          password: "",
-        }}
-      >
-        {({ handleSubmit, handleChange, values, touched, errors }) => (
-          <Form noValidate onSubmit={handleSubmit}>
-            <Form.Group>
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-                isValid={touched.email && !errors.email}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                value={values.password}
-                onChange={handleChange}
-                isValid={touched.password && !errors.password}
-              />
-            </Form.Group>
-            <Button type="submit" disabled={isLoading}>
-              {t("shared.logIn")}
-            </Button>
-          </Form>
-        )}
-      </Formik>
+      <div className="login mx-auto">
+        <h1 className="login__title text-center">{t("Login.title")}</h1>
+        <Formik
+          validationSchema={loginSchema}
+          onSubmit={onSubmit}
+          initialValues={{
+            email: "",
+            password: "",
+          }}
+        >
+          {({ handleSubmit, handleChange, values, touched, errors }) => (
+            <Form
+              className="from login__form"
+              noValidate
+              onSubmit={handleSubmit}
+            >
+              <Form.Group className="from__field">
+                <Form.Label className="from__label">Email</Form.Label>
+                <Form.Control
+                  className="from__input"
+                  type="email"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  isValid={touched.email && !errors.email}
+                />
+              </Form.Group>
+              <Form.Group className="from__field">
+                <Form.Label className="from__label">Password</Form.Label>
+                <Form.Control
+                  className="from__input"
+                  type="password"
+                  name="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  isValid={touched.password && !errors.password}
+                />
+              </Form.Group>
+              <Button type="submit" disabled={isLoading} className="w-full">
+                {t("shared.logIn")}
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </GuestLayout>
   );
 };

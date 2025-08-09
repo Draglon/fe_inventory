@@ -36,8 +36,8 @@ const Registration = () => {
   };
 
   return (
-    <>
-      <h1>{t("Registration.title")}</h1>
+    <div className="signup mx-auto">
+      <h1 className="signup__title text-center">{t("Registration.title")}</h1>
 
       <Formik
         validationSchema={registrationSchema}
@@ -48,10 +48,15 @@ const Registration = () => {
         }}
       >
         {({ handleSubmit, handleChange, values, touched, errors }) => (
-          <Form noValidate onSubmit={handleSubmit}>
-            <Form.Group>
-              <Form.Label>Email</Form.Label>
+          <Form
+            className="from signup__form"
+            noValidate
+            onSubmit={handleSubmit}
+          >
+            <Form.Group className="from__field">
+              <Form.Label className="from__label">Email</Form.Label>
               <Form.Control
+                className="from__input"
                 type="email"
                 name="email"
                 value={values.email}
@@ -59,9 +64,10 @@ const Registration = () => {
                 isValid={touched.email && !errors.email}
               />
             </Form.Group>
-            <Form.Group>
-              <Form.Label>Password</Form.Label>
+            <Form.Group className="from__field">
+              <Form.Label className="from__label">Password</Form.Label>
               <Form.Control
+                className="from__input"
                 type="password"
                 name="password"
                 value={values.password}
@@ -69,11 +75,13 @@ const Registration = () => {
                 isValid={touched.password && !errors.password}
               />
             </Form.Group>
-            <Button type="submit">{t("shared.signUp")}</Button>
+            <Button type="submit" className="w-full">
+              {t("shared.signUp")}
+            </Button>
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   );
 };
 

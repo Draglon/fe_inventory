@@ -55,12 +55,12 @@ const RemoveProductModal = ({
             <Indicator active={product?.isNew} />
           </div>
           <div className="product__image">
-            <Image
+            {/* <Image
               src={product?.photo}
               alt={product?.title}
               width="36"
               height="43"
-            />
+            /> */}
           </div>
           <div className="product__description">
             <h4 className="product__title">{product?.title}</h4>

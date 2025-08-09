@@ -1,4 +1,4 @@
-import productSrc from "@/../public/images/product.webp";
+import productSrc from "@/../public/images/products/monitors/product.webp";
 
 export const PRODUCTS = [
   {

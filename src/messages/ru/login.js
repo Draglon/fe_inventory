@@ -1,10 +1,10 @@
 const login = {
   "Login": {
     "layout": {
-      "title": "Login page",
-      "description": "Login page - description",
+      "title": "Авторизоваться",
+      "description": "Авторизоваться - описание",
     },
-    "title": "Login",
+    "title": "Авторизоваться",
   },
 };
 
