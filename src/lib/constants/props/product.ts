@@ -3,7 +3,7 @@ export type ProductProps = {
   title: string;
   type: string;
   serialNumber: string;
-  isNew: boolean;
+  isNew: number;
   photo: string;
   specification: string;
   date: string;

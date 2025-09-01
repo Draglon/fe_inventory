@@ -36,11 +36,65 @@ exports[`ua locale matches snapshot 1`] = `
     "title": "Замовлення",
   },
   "Products": {
+    "filter": {
+      "specification": {
+        "label": "Специфікація:",
+        "option": {
+          "monitor": "Монітор",
+          "phone": "Телефон",
+        },
+      },
+      "type": {
+        "label": "Тип:",
+        "option": {
+          "monitor": "Монітор",
+          "phone": "Телефон",
+        },
+      },
+    },
+    "guarantee": {
+      "from": "з",
+      "to": "до",
+    },
     "layout": {
       "description": "Продукти",
       "title": "Продукти",
     },
     "title": "Продукти",
+  },
+  "Registration": {
+    "description": "Будь ласка заповніть всі поля",
+    "form": {
+      "email": {
+        "errors": {
+          "required": "Будь ласка, введіть електронну пошту!",
+        },
+        "label": "Електронна пошта",
+        "placeholder": "Введіть електронну пошту",
+      },
+      "password": {
+        "errors": {
+          "maxLength": "Має містити не більше 20 символів",
+          "minLength": "Має містити щонайменше 6 символів",
+          "required": "Будь ласка, введіть пароль!",
+        },
+        "label": "Пароль",
+        "placeholder": "Введіть пароль",
+      },
+      "userName": {
+        "errors": {
+          "minLength": "Будь ласка, введіть своє ім'я користувача!",
+          "required": "Будь ласка, введіть своє ім'я користувача!",
+        },
+        "label": "Ім'я користувача",
+        "placeholder": "Введіть ім'я користувача",
+      },
+    },
+    "layout": {
+      "description": "Реєстрація сторінка - опис",
+      "title": "Реєстрація",
+    },
+    "title": "Реєстрація",
   },
   "Settings": {
     "layout": {
@@ -78,6 +132,14 @@ exports[`ua locale matches snapshot 1`] = `
     "search": "Пошук",
     "settings": "Налаштування",
     "signUp": "Реєстрація",
+    "status": {
+      "free": "В наявності",
+      "new": "Новий",
+      "repair": "Ремонт",
+      "reserved": "Зарезервовано",
+      "sold": "Проданий",
+      "used": "Б/У",
+    },
   },
 }
 `;

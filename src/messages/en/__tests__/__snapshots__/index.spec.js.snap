@@ -36,11 +36,64 @@ exports[`en locale matches snapshot 1`] = `
     "title": "Orders",
   },
   "Products": {
+    "filter": {
+      "specification": {
+        "label": "Specification:",
+        "option": {
+          "monitor": "Monitor",
+          "phone": "Phone",
+        },
+      },
+      "type": {
+        "label": "Type:",
+        "option": {
+          "monitor": "Monitor",
+          "phone": "Phone",
+        },
+      },
+    },
+    "guarantee": {
+      "from": "from",
+      "to": "to",
+    },
     "layout": {
       "description": "Products page - description",
       "title": "Products page",
     },
     "title": "Products",
+  },
+  "Registration": {
+    "description": "Please, fill all fields",
+    "form": {
+      "email": {
+        "errors": {
+          "required": "Please input your email!",
+        },
+        "label": "Email",
+        "placeholder": "Input email",
+      },
+      "password": {
+        "errors": {
+          "maxLength": "Must be no more than 20 characters",
+          "minLength": "Must be at least 6 characters long",
+          "required": "Please input your password!",
+        },
+        "label": "Password",
+        "placeholder": "Input password",
+      },
+      "userName": {
+        "errors": {
+          "required": "Please input your username!",
+        },
+        "label": "Username",
+        "placeholder": "Input username",
+      },
+    },
+    "layout": {
+      "description": "Registration - description",
+      "title": "Registration",
+    },
+    "title": "Sign up",
   },
   "Settings": {
     "layout": {
@@ -79,6 +132,14 @@ exports[`en locale matches snapshot 1`] = `
     "search": "Search",
     "settings": "Settings",
     "signUp": "Sign up",
+    "status": {
+      "free": "In stock",
+      "new": "New",
+      "repair": "Repair",
+      "reserved": "Reserved",
+      "sold": "Sold",
+      "used": "Used",
+    },
   },
 }
 `;

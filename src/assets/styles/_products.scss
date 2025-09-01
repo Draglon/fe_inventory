@@ -26,9 +26,19 @@
   }
 
   .products__indicator {
+    width: 70px;
     padding: 15px 30px;
     vertical-align: middle;
     text-align: center;
+  }
+
+  .products__image {
+    width: 80px;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   .products__description {
@@ -42,32 +52,35 @@
 
   .products__status {
     font-size: 12px;
-    &.products__status--active {
-      color: var(--green-light);
-    }
+    width: 100px;
   }
 
   .products__period {
     color: var(--grey);
     font-size: 12px;
+    width: 140px;
     span {
       color: var(--grey-light);
       display: inline-block;
-      width: 15px;
     }
   }
 
   .products__period-start {
+    display: flex;
+    justify-content: space-between;
     font-size: 12px;
   }
 
   .products__period-end {
+    display: flex;
+    justify-content: space-between;
     font-size: 12px;
   }
 
   .products__product-status {
     color: var(--grey);
     font-size: 12px;
+    width: 100px;
   }
 
   .products__price-usd {
@@ -98,7 +111,6 @@
   .products__date-short {
     color: var(--grey-light);
     font-size: 10px;
-    text-align: center;
   }
 
   .products__date-long {
@@ -107,9 +119,9 @@
   }
 
   .products__remove {
-    padding: 15px;
+    padding: 15px 30px 15px 15px;
     vertical-align: middle;
-    text-align: center;
+    text-align: right;
   }
 
   .products__icon-remove {

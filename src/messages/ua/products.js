@@ -5,6 +5,26 @@ const products = {
       "description": "Продукти",
     },
     "title": "Продукти",
+    "filter": {
+      "type": {
+       "label": "Тип:",
+       "option": {
+         "phone": "Телефон",
+         "monitor": "Монітор"
+       }
+     },
+     "specification": {
+       "label": "Специфікація:",
+       "option": {
+         "phone": "Телефон",
+         "monitor": "Монітор"
+       }
+     },
+   },
+   "guarantee": {
+    "from": "з",
+    "to": "до"
+  }
   },
 };
 

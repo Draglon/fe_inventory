@@ -13,8 +13,8 @@ export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    logout: state => {
-      state.data = null;
+    showModal: (state, { payload }) => {
+      state.data = payload;
     },
   },
   extraReducers: (builder) => {

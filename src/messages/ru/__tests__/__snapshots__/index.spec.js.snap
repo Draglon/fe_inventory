@@ -16,10 +16,10 @@ exports[`ru locale matches snapshot 1`] = `
   },
   "Login": {
     "layout": {
-      "description": "Login page - description",
-      "title": "Login page",
+      "description": "Авторизоваться - описание",
+      "title": "Авторизоваться",
     },
-    "title": "Login",
+    "title": "Авторизоваться",
   },
   "Navigation": {
     "groups": "Группы",
@@ -36,11 +36,64 @@ exports[`ru locale matches snapshot 1`] = `
     "title": "Приходы",
   },
   "Products": {
+    "filter": {
+      "specification": {
+        "label": "Спецификация:",
+        "option": {
+          "monitor": "Монитор",
+          "phone": "Телефон",
+        },
+      },
+      "type": {
+        "label": "Тип:",
+        "option": {
+          "monitor": "Монитор",
+          "phone": "Телефон",
+        },
+      },
+    },
+    "guarantee": {
+      "from": "с",
+      "to": "по",
+    },
     "layout": {
       "description": "Продукты - описание",
       "title": "Продукты",
     },
     "title": "Продукты",
+  },
+  "Registration": {
+    "description": "Пожалуйста заполните все поля",
+    "form": {
+      "email": {
+        "errors": {
+          "required": "Пожалуйста, введите электронную почту!",
+        },
+        "label": "Электронная почта",
+        "placeholder": "Введите электронную почту",
+      },
+      "password": {
+        "errors": {
+          "maxLength": "Длина должна быть не более 20 символов",
+          "minLength": "Длина должна быть не менее 6 символов",
+          "required": "Пожалуйста, введите пароль!",
+        },
+        "label": "Пароль",
+        "placeholder": "Введите пароль",
+      },
+      "userName": {
+        "errors": {
+          "required": "Пожалуйста, введите свое имя пользователя!",
+        },
+        "label": "Имя пользователя",
+        "placeholder": "Введите имя пользователя",
+      },
+    },
+    "layout": {
+      "description": "Регистрация - описание",
+      "title": "Регистрация",
+    },
+    "title": "Регистрация",
   },
   "Settings": {
     "layout": {
@@ -79,6 +132,14 @@ exports[`ru locale matches snapshot 1`] = `
     "search": "Поиск",
     "settings": "Настройки",
     "signUp": "Регистрация",
+    "status": {
+      "free": "В наличии",
+      "new": "Новый",
+      "repair": "Ремонт",
+      "reserved": "Зарезервировано",
+      "sold": "Продан",
+      "used": "Б/У",
+    },
   },
 }
 `;

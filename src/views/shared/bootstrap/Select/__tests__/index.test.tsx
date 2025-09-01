@@ -7,8 +7,9 @@ describe("Select", () => {
   describe("renders component", () => {
     const defaultProps = {
       id: "1",
-      options: [{ key: "1", value: "Option value" }],
+      options: [{ key: "1", value: "value", label: "Option value" }],
       "data-testid": "select",
+      onChange: () => {},
     };
     const renderComponent = (props = defaultProps) =>
       render(<Select {...props} />);

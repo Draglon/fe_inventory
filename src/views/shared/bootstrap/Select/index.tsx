@@ -12,7 +12,9 @@ type SelectProps = {
   options: {
     key: string;
     value: string;
+    label: string;
   }[];
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 function Select({
@@ -22,6 +24,7 @@ function Select({
   className,
   disabled,
   options,
+  onChange,
   ...props
 }: SelectProps) {
   return (
@@ -41,10 +44,13 @@ function Select({
         disabled={disabled}
         className="select-field__select"
         data-testid="select"
+        onChange={onChange}
         {...props}
       >
-        {options.map(({ key, value }) => (
-          <option key={key}>{value}</option>
+        {options.map(({ key, value, label }) => (
+          <option key={key} value={value}>
+            {label}
+          </option>
         ))}
       </Form.Select>
     </div>

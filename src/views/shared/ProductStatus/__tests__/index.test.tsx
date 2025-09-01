@@ -3,9 +3,19 @@ import { render, screen } from "@testing-library/react";
 
 import ProductStatus from "../";
 
+jest.mock("next-intl", () => ({
+  useTranslations: jest.fn().mockImplementation(() => (key: string) => {
+    const translation = {
+      "shared.status.new": "New",
+      "shared.status.used": "Used",
+    };
+    return translation[key] || key;
+  }),
+}));
+
 describe("ProductStatus", () => {
   describe("renders component", () => {
-    const defaultProps = { active: false, status: "Inactive" };
+    const defaultProps = { status: 0 };
     const renderComponent = (props = defaultProps) =>
       render(<ProductStatus {...props} />);
 
@@ -16,16 +26,16 @@ describe("ProductStatus", () => {
       expect(screen.getByTestId("productStatus")).not.toHaveClass(
         "status--active"
       );
-      expect(screen.getByText("Inactive")).toBeInTheDocument();
+      expect(screen.getByText("Used")).toBeInTheDocument();
     });
 
     it("when active is true", () => {
-      const props = { ...defaultProps, active: true, status: "Active" };
+      const props = { ...defaultProps, status: 1 };
       renderComponent(props);
 
       expect(screen.getByTestId("productStatus")).toHaveClass("status");
-      expect(screen.getByTestId("productStatus")).toHaveClass("status--active");
-      expect(screen.getByText("Active")).toBeInTheDocument();
+      expect(screen.getByTestId("productStatus")).toHaveClass("status--new");
+      expect(screen.getByText("New")).toBeInTheDocument();
     });
   });
 });

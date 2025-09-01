@@ -3,7 +3,8 @@
   font-size: 14px;
   font-weight: 500;
 
-  &--active {
+  &--new,
+  &--free {
     color: var(--green-light);
   }
 }

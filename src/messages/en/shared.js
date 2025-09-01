@@ -14,6 +14,14 @@ const shared = {
     "add": "Add",
     "delete": "Delete",
     "save": "Save",
+    "status": {
+      "free": "In stock",
+      "reserved": "Reserved",
+      "new": "New",
+      "used": "Used",
+      "repair": "Repair",
+      "sold": "Sold",
+    },
     "modal": {
       "removeProduct": {
         "title": "Are you sure you want to remove this product?",

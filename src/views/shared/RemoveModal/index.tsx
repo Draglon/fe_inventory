@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Modal } from "react-bootstrap";
 import { Trash } from "react-bootstrap-icons";
@@ -7,6 +6,7 @@ import { Trash } from "react-bootstrap-icons";
 import { useAppDispatch } from "@/store/hooks";
 import { hideModal as hideModalAction } from "@/store/modal/actions";
 import Indicator from "@/views/shared/Indicator";
+import Image from "@/views/shared/Image";
 import Button from "@/views/shared/bootstrap/Button";
 
 type RemoveProductModalProps = {
@@ -55,12 +55,12 @@ const RemoveProductModal = ({
             <Indicator active={product?.isNew} />
           </div>
           <div className="product__image">
-            {/* <Image
+            <Image
               src={product?.photo}
               alt={product?.title}
-              width="36"
-              height="43"
-            /> */}
+              width={36}
+              height={43}
+            />
           </div>
           <div className="product__description">
             <h4 className="product__title">{product?.title}</h4>
