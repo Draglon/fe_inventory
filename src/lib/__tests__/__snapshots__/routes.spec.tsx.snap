@@ -2,8 +2,12 @@
 
 exports[`routes constants match snapshot 1`] = `
 {
-  "homeRoute": "/",
-  "loginRoute": "/login",
+  "groupsRoute": "/groups",
+  "loginRoute": "/",
+  "ordersRoute": "/orders",
+  "productsRoute": "/products",
   "registrationRoute": "/registration",
+  "settingsRoute": "/settings",
+  "usersRoute": "/users",
 }
 `;

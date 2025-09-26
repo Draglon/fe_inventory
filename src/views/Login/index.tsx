@@ -27,7 +27,6 @@ const Login = () => {
 
   const onSubmit = async (values: FieldsProps) => {
     const data = await dispatch(fetchAuth(values));
-
     if ("token" in data.payload) {
       localStorage.setItem("token", data.payload.token);
       router.push(ordersRoute, { locale });
@@ -53,7 +52,9 @@ const Login = () => {
               onSubmit={handleSubmit}
             >
               <Form.Group className="from__field">
-                <Form.Label className="from__label">Email</Form.Label>
+                <Form.Label className="from__label">
+                  {t("shared.email")}
+                </Form.Label>
                 <Form.Control
                   className="from__input"
                   type="email"
@@ -64,7 +65,9 @@ const Login = () => {
                 />
               </Form.Group>
               <Form.Group className="from__field">
-                <Form.Label className="from__label">Password</Form.Label>
+                <Form.Label className="from__label">
+                  {t("shared.password")}
+                </Form.Label>
                 <Form.Control
                   className="from__input"
                   type="password"

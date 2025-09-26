@@ -5,5 +5,9 @@ exports[`apiRoutes constants match snapshot 1`] = `
   "authLoginRoute": "/auth/login",
   "authRegistrationRoute": "/auth/register",
   "authUserRoute": "/auth/user",
+  "orderRoute": [Function],
+  "ordersRoute": "/orders",
+  "productRoute": [Function],
+  "productsRoute": "/products",
 }
 `;

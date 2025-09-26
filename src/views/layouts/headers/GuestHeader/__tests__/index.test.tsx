@@ -18,6 +18,9 @@ jest.mock("../../../../shared/Logo", () => () => (
   <mock-logo data-testid="logo" />
 ));
 
+jest.mock("../../../../shared/NavigationLink", () => () => (
+  <mock-navigation-link data-testid="navigation-link" />
+));
 describe("GuestHeader", () => {
   describe("renders component", () => {
     const renderComponent = () => render(<GuestHeader />);
@@ -25,6 +28,7 @@ describe("GuestHeader", () => {
     it("with default props", () => {
       renderComponent();
 
+      screen.debug();
       expect(screen.getByTestId("logo")).toBeInTheDocument();
     });
   });

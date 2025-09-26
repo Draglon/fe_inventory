@@ -115,6 +115,7 @@ exports[`ua locale matches snapshot 1`] = `
     "cancel": "Відмінити",
     "confirm": "Підтвердити",
     "create": "Створити",
+    "email": "Електронна пошта",
     "logIn": "Увійти",
     "logout": "Вийти",
     "modal": {
@@ -126,6 +127,7 @@ exports[`ua locale matches snapshot 1`] = `
       },
     },
     "next": "Наступний",
+    "password": "Пароль",
     "previous": "Попередній",
     "profile": "Профіль",
     "save": "Зберегти",

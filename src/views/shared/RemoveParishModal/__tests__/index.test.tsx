@@ -1,5 +1,7 @@
 import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
+import { hideModal } from "@/store/modal/actions";
 
 import RemoveParishModal from "../";
 
@@ -29,12 +31,25 @@ describe("RemoveParishModal", () => {
     const renderComponent = (props = defaultProps) =>
       render(<RemoveParishModal {...props} />);
 
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
     it("with default props", () => {
       renderComponent();
 
       expect(screen.getByText("Modal title")).toBeInTheDocument();
       expect(screen.getByTestId("handleClose")).toHaveTextContent("Cancel");
       expect(screen.getByTestId("handleRemove")).toHaveTextContent("Delete");
+    });
+
+    it("dispatches hideModal() when press cancel button", async () => {
+      const user = userEvent.setup();
+      renderComponent();
+
+      await user.click(screen.getByText("Cancel"));
+
+      expect(mockDispatch).toHaveBeenCalledWith(hideModal());
     });
   });
 });

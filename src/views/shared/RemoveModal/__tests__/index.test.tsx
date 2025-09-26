@@ -1,5 +1,7 @@
 import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
+import { hideModal } from "@/store/modal/actions";
 
 import RemoveProductModal from "../";
 
@@ -35,6 +37,10 @@ describe("RemoveProductModal", () => {
     const renderComponent = (props = defaultProps) =>
       render(<RemoveProductModal {...props} />);
 
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
     it("with default props", () => {
       renderComponent();
 
@@ -44,6 +50,15 @@ describe("RemoveProductModal", () => {
       expect(screen.getByTestId("indicator")).toBeInTheDocument();
       expect(screen.getByTestId("handleClose")).toHaveTextContent("Cancel");
       expect(screen.getByTestId("handleRemove")).toHaveTextContent("Delete");
+    });
+
+    it("dispatches hideModal() when press cancel button", async () => {
+      const user = userEvent.setup();
+      renderComponent();
+
+      await user.click(screen.getByText("Cancel"));
+
+      expect(mockDispatch).toHaveBeenCalledWith(hideModal());
     });
   });
 });

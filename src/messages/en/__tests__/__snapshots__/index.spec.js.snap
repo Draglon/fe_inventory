@@ -115,6 +115,7 @@ exports[`en locale matches snapshot 1`] = `
     "confirm": "Confirm",
     "create": "Create",
     "delete": "Delete",
+    "email": "Email",
     "logIn": "Log in",
     "logout": "Log out",
     "modal": {
@@ -126,6 +127,7 @@ exports[`en locale matches snapshot 1`] = `
       },
     },
     "next": "Next",
+    "password": "Password",
     "previous": "Previous",
     "profile": "Profile",
     "save": "Save",

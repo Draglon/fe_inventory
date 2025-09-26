@@ -14,6 +14,8 @@ const shared = {
     "add": "Add",
     "delete": "Delete",
     "save": "Save",
+    "email": "Email",
+    "password": "Password",
     "status": {
       "free": "In stock",
       "reserved": "Reserved",

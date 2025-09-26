@@ -20,12 +20,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 1,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
@@ -56,12 +50,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 0,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
@@ -92,12 +80,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 0,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
@@ -137,12 +119,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 1,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
@@ -173,12 +149,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 0,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
@@ -209,12 +179,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 0,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
@@ -254,12 +218,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 1,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
@@ -290,12 +248,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 0,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
@@ -326,12 +278,6 @@ exports[`groups constants match snapshot 1`] = `
           "isNew": 0,
           "order": 1,
           "parish": "Длинное предлинное длиннючее название прихода",
-          "photo": {
-            "blurDataURL": "data:image/png;base64,imagedata",
-            "height": 40,
-            "src": "/img.jpg",
-            "width": 40,
-          },
           "price": [
             {
               "isDefault": 0,
