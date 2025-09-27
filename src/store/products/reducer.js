@@ -12,11 +12,6 @@ const initialState = {
 export const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {
-    showModal: (state, { payload }) => {
-      state.data = payload;
-    },
-  },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
       state.data = null;

@@ -19,8 +19,10 @@ import Button from "@/views/shared/bootstrap/Button";
 const Orders = () => {
   const t = useTranslations("shared");
   const dispatch = useAppDispatch();
-  // const isLoading = useAppSelector(isLoadingSelector);
+  const isLoading = useAppSelector(isLoadingSelector);
   const orders = useAppSelector(ordersSelector);
+
+  console.log("loader: ", isLoading);
 
   const handleRemove = (id: string) => () => {
     dispatch(deleteOrder({ id }));
@@ -49,7 +51,7 @@ const Orders = () => {
       <Table className="orders__table">
         <tbody>
           {isPresent(orders) &&
-            orders.map((item) => (
+            orders.map((item: any) => (
               <tr className="orders__item" key={item.id}>
                 <td className="orders__title">
                   <a href="#" className="orders__link">

@@ -15,6 +15,7 @@ describe("Image", () => {
     };
 
     const renderComponent = (props = defaultProps) =>
+      // eslint-disable-next-line jsx-a11y/alt-text
       render(<Image {...props} />);
 
     it("with default props", () => {

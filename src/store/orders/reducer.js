@@ -12,11 +12,6 @@ const initialState = {
 export const ordersSlice = createSlice({
   name: "orders",
   initialState,
-  reducers: {
-    logout: state => {
-      state.data = null;
-    },
-  },
   extraReducers: (builder) => {
     builder.addCase(fetchOrders.pending, (state) => {
       state.data = null;

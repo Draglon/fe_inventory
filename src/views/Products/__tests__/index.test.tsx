@@ -18,21 +18,6 @@ jest.mock("next-intl", () => ({
   }),
 }));
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "mock-products-list": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-      "mock-products-filter": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}
-
 jest.mock("../List", () => () => (
   <mock-products-list data-testid="products-list" />
 ));

@@ -3,16 +3,27 @@ import { render, screen } from "@testing-library/react";
 
 import GuestHeader from "../";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "mock-logo": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}
+jest.mock("next-intl", () => ({
+  useTranslations: jest.fn().mockImplementation(() => (key: string) => {
+    const translation = {
+      "shared.logIn": "Log in",
+      "shared.signUp": "Sign up",
+    };
+    return translation[key] || key;
+  }),
+  useLocale: jest.fn(() => "en"),
+}));
+
+// declare global {
+//   namespace JSX {
+//     interface IntrinsicElements {
+//       "mock-logo": React.DetailedHTMLProps<
+//         React.HTMLAttributes<HTMLElement>,
+//         HTMLElement
+//       >;
+//     }
+//   }
+// }
 
 jest.mock("../../../../shared/Logo", () => () => (
   <mock-logo data-testid="logo" />
@@ -28,8 +39,8 @@ describe("GuestHeader", () => {
     it("with default props", () => {
       renderComponent();
 
-      screen.debug();
       expect(screen.getByTestId("logo")).toBeInTheDocument();
+      expect(screen.getAllByTestId("navigation-link")).toHaveLength(2);
     });
   });
 });
