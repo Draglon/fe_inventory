@@ -7,6 +7,7 @@ import deleteProduct from "./operations/deleteProduct";
 const initialState = {
   data: null,
   status: undefined,
+  error: null,
 };
 
 export const productsSlice = createSlice({
@@ -16,40 +17,49 @@ export const productsSlice = createSlice({
     builder.addCase(fetchProducts.pending, (state) => {
       state.data = null;
       state.status = "loading";
+      state.error = null;
     });
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.data = action.payload;
       state.status = "loaded";
+      state.error = null;
     });
-    builder.addCase(fetchProducts.rejected, (state) => {
+    builder.addCase(fetchProducts.rejected, (state, action) => {
       state.data = null;
       state.status = "error";
+      state.error = action.payload;
     });
 
     builder.addCase(createProduct.pending, (state) => {
       state.data = null;
       state.status = "loading";
+      state.error = null;
     });
     builder.addCase(createProduct.fulfilled, (state, action) => {
       state.data = action.payload;
       state.status = "loaded";
+      state.error = null;
     });
-    builder.addCase(createProduct.rejected, (state) => {
+    builder.addCase(createProduct.rejected, (state, action) => {
       state.data = null;
       state.status = "error";
+      state.error = action.payload;
     });
 
     builder.addCase(deleteProduct.pending, (state) => {
       state.data = null;
       state.status = "loading";
+      state.error = null;
     });
     builder.addCase(deleteProduct.fulfilled, (state, action) => {
       state.data = action.payload;
       state.status = "loaded";
+      state.error = null;
     });
-    builder.addCase(deleteProduct.rejected, (state) => {
+    builder.addCase(deleteProduct.rejected, (state, action) => {
       state.data = null;
       state.status = "error";
+      state.error = action.payload;
     });
   },
 });

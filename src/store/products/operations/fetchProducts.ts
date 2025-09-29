@@ -6,12 +6,12 @@ import { FETCH_PRODUCTS } from "../types";
 
 const fetchProductsOperation = createAsyncThunk(
   FETCH_PRODUCTS,
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(productsRoute, {});
       return data;
-    } catch (error) {
-      console.log("error: ", error);
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
     }
   },
 );

@@ -6,12 +6,12 @@ import { FETCH_ORDERS } from "../types";
 
 const fetchOrdersOperation = createAsyncThunk(
   FETCH_ORDERS,
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(ordersRoute, {});
       return data;
-    } catch (error) {
-      console.log("error: ", error);
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
     }
   },
 );

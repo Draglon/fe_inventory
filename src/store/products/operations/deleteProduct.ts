@@ -10,12 +10,15 @@ type ParamsType = {
 
 const deleteProductOperation = createAsyncThunk(
   DELETE_PRODUCT,
-  async (params: ParamsType) => {
-    const { id } = params;
-    const { data } = await axios.delete(productRoute(id));
-
-    console.log("data: ", data);
-    return data;
+  async (params: ParamsType, { rejectWithValue }) => {
+    try {
+      const { id } = params;
+      const { data } = await axios.delete(productRoute(id));
+  
+      return data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
   },
 );
 
