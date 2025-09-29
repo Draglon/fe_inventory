@@ -1,4 +1,6 @@
 "use client";
+import { noop } from "lodash";
+
 import Indicator from "@/views/shared/Indicator";
 import Image from "@/views/shared/Image";
 import ProductStatus from "@/views/shared/ProductStatus";
@@ -31,7 +33,7 @@ const DropdownItem = ({ product }: DropdownItemProps) => {
         <ProductStatus status={product.isNew} />
       </div>
       <div className="groups-product__item groups-product__item--remove">
-        <RemoveButton onClick={() => {}} />
+        <RemoveButton onClick={noop} />
       </div>
     </div>
   );

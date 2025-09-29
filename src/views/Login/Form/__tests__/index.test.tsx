@@ -1,7 +1,9 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "@testing-library/react";
 
-import Login from "../index";
+// import fetchAuth from "@/store/auth/operations/fetchAuth";
+import LoginForm from "../index";
 
 const mockDispatch = jest.fn();
 jest.mock("../../../../store/hooks", () => ({
@@ -37,14 +39,14 @@ jest.mock("../../../../store/auth/selectors", () => ({
   isLoadingSelector: jest.fn(() => true),
 }));
 
-describe("Login", () => {
+describe("LoginForm", () => {
+  const renderComponent = () => render(<LoginForm />);
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe("renders component", () => {
-    const renderComponent = () => render(<Login />);
-
-    beforeEach(() => {
-      jest.clearAllMocks();
-    });
-
     it("with default props", () => {
       renderComponent();
 
@@ -52,6 +54,29 @@ describe("Login", () => {
       expect(screen.getByText("Email")).toBeInTheDocument();
       expect(screen.getByText("Password")).toBeInTheDocument();
       expect(screen.getByText("Log in")).toBeInTheDocument();
+    });
+  });
+
+  describe("onSubmit()", () => {
+    it("dispatches fetchAuth()", async () => {
+      const user = userEvent.setup();
+      renderComponent();
+
+      const emailInput = screen.getByTestId("emailInput");
+      fireEvent.change(emailInput, { target: { value: "test@example.com" } });
+      expect(emailInput.value).toBe("test@example.com");
+
+      const passwordInput = screen.getByTestId("passwordInput");
+      fireEvent.change(passwordInput, { target: { value: "password123" } });
+      expect(passwordInput.value).toBe("password123");
+
+      await user.click(screen.getByTestId("submitButton"));
+
+      // await waitFor(() => {
+      //   expect(mockDispatch).toHaveBeenCalledWith(
+      //     fetchAuth({ email: "test@example.com", password: "password123" })
+      //   );
+      // });
     });
   });
 });

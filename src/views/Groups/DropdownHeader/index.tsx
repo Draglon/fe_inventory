@@ -1,6 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { Plus } from "react-bootstrap-icons";
+import { noop } from "lodash";
 
 import Button from "@/views/shared/bootstrap/Button";
 
@@ -18,7 +19,7 @@ const DropdownHeader = ({ title }: DropdownHeaderProps) => {
         className="groups__dropdown-button-plus"
         variant="link"
         data-testid="button-plus"
-        onClick={() => {}}
+        onClick={noop}
       >
         <Plus className="groups__dropdown-icon-plus" size={24} />
         <span className="groups__dropdown-text">{t("Groups.addProduct")}</span>

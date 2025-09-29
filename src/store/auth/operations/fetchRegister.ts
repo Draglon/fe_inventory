@@ -11,10 +11,13 @@ type ParamsType = {
 
 const fetchRegistrationOperation = createAsyncThunk(
   FETCH_REGISTER,
-  async (params: ParamsType) => {
-    const { data } = await axios.post(authRegistrationRoute, params);
-
-    return data;
+  async (params: ParamsType, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(authRegistrationRoute, params);
+      return data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
   },
 );
 

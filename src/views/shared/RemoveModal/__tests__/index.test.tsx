@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
-import { hideModal } from "@/store/modal/actions";
 
+import { hideModal } from "@/store/modal/actions";
 import RemoveProductModal from "../";
 
 const mockDispatch = jest.fn();

@@ -16,7 +16,7 @@ type FieldsProps = {
   password: string;
 };
 
-const Login = () => {
+const LoginForm = () => {
   const t = useTranslations();
   const locale = useLocale();
   const router = useRouter();
@@ -56,6 +56,7 @@ const Login = () => {
                 value={values.email}
                 onChange={handleChange}
                 isValid={touched.email && !errors.email}
+                data-testid="emailInput"
               />
             </Form.Group>
             <Form.Group className="from__field">
@@ -69,9 +70,15 @@ const Login = () => {
                 value={values.password}
                 onChange={handleChange}
                 isValid={touched.password && !errors.password}
+                data-testid="passwordInput"
               />
             </Form.Group>
-            <Button type="submit" disabled={isLoading} className="w-full">
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="w-full"
+              data-testid="submitButton"
+            >
               {t("shared.logIn")}
             </Button>
           </Form>
@@ -81,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;

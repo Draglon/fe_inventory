@@ -6,12 +6,12 @@ import { FETCH_USER } from "./../types";
 
 const fetchUserOperation = createAsyncThunk(
   FETCH_USER,
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(authUserRoute, {});
       return data;
-    } catch (error) {
-      console.log("error: ", error);
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
     }
   },
 );
