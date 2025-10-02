@@ -8,8 +8,22 @@ describe("fetchAuth thunk", () => {
   let store;
   let axiosPostSpy;
   const mockUser = {
-    email: "email@gmail.com",
-    password: "123456",
+    values: {
+      email: "email@gmail.com",
+      password: "123456",
+    },
+    payload: {
+      locale: "en",
+      router: {
+        push: jest.fn(),
+      },
+    },
+    form: {
+      setErrors: jest.fn(),
+      setSubmitting: jest.fn(),
+      setStatus: jest.fn(),
+    },
+    token: "token",
   };
 
   beforeEach(() => {
@@ -30,10 +44,11 @@ describe("fetchAuth thunk", () => {
 
     await store.dispatch(fetchAuth(mockUser));
 
-    expect(axiosPostSpy).toHaveBeenCalledWith("/auth/login", mockUser);
+    expect(axiosPostSpy).toHaveBeenCalledWith("/auth/login", mockUser.values);
     expect(store.getState().auth.status).toBe("loaded");
     expect(store.getState().auth.data).toEqual(mockUser);
     expect(store.getState().auth.error).toEqual(null);
+    expect(mockUser.payload.router.push).toHaveBeenCalledWith("/orders", { locale: "en" });
   });
 
   it("should handle failed POST request", async () => {
@@ -42,7 +57,7 @@ describe("fetchAuth thunk", () => {
   
     await store.dispatch(fetchAuth(mockUser));
   
-    expect(axiosPostSpy).toHaveBeenCalledWith("/auth/login", mockUser);
+    expect(axiosPostSpy).toHaveBeenCalledWith("/auth/login", mockUser.values);
     expect(store.getState().auth.status).toBe("error");
     expect(store.getState().auth.data).toBe(null);
     expect(store.getState().auth.error).toEqual(mockError);

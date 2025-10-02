@@ -1,43 +1,29 @@
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import { Form } from "react-bootstrap";
-import * as formik from "formik";
+import { Formik } from "formik";
 
+import useFormSubmit from "@/hooks/shared/form/useFormSubmit";
 import { useRouter } from "@/i18n/navigation";
-import { ordersRoute } from "@/lib/routes";
 import loginSchema from "@/lib/yupLocalised/schemas/login";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "@/store/hooks";
 import fetchAuth from "@/store/auth/operations/fetchAuth";
 import { isLoadingSelector } from "@/store/auth/selectors";
 import Button from "@/views/shared/bootstrap/Button";
-
-type FieldsProps = {
-  email: string;
-  password: string;
-};
 
 const LoginForm = () => {
   const t = useTranslations();
   const locale = useLocale();
   const router = useRouter();
-  const dispatch = useAppDispatch();
   const isLoading = useAppSelector(isLoadingSelector);
-  const { Formik } = formik;
-
-  const onSubmit = async (values: FieldsProps) => {
-    const data = await dispatch(fetchAuth(values));
-    if ("token" in data.payload) {
-      localStorage.setItem("token", data.payload.token);
-      router.push(ordersRoute, { locale });
-    }
-  };
+  const handleLogin = useFormSubmit(fetchAuth, { locale, router });
 
   return (
     <div className="login mx-auto">
       <h1 className="login__title text-center">{t("Login.title")}</h1>
       <Formik
         validationSchema={loginSchema}
-        onSubmit={onSubmit}
+        onSubmit={handleLogin}
         initialValues={{
           email: "",
           password: "",
@@ -46,11 +32,12 @@ const LoginForm = () => {
         {({ handleSubmit, handleChange, values, touched, errors }) => (
           <Form className="from login__form" noValidate onSubmit={handleSubmit}>
             <Form.Group className="from__field">
-              <Form.Label className="from__label">
+              <Form.Label className="from__label" htmlFor="email">
                 {t("shared.email")}
               </Form.Label>
               <Form.Control
                 className="from__input"
+                id="email"
                 type="email"
                 name="email"
                 value={values.email}
@@ -60,11 +47,12 @@ const LoginForm = () => {
               />
             </Form.Group>
             <Form.Group className="from__field">
-              <Form.Label className="from__label">
+              <Form.Label className="from__label" htmlFor="password">
                 {t("shared.password")}
               </Form.Label>
               <Form.Control
                 className="from__input"
+                id="password"
                 type="password"
                 name="password"
                 value={values.password}

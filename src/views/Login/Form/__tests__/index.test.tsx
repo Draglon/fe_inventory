@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
-// import fetchAuth from "@/store/auth/operations/fetchAuth";
+import useFormSubmit from "@/hooks/shared/form/useFormSubmit";
 import LoginForm from "../index";
 
 const mockDispatch = jest.fn();
@@ -14,7 +14,7 @@ jest.mock("../../../../store/hooks", () => ({
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "Login.title": "Login",
       "shared.email": "Email",
       "shared.password": "Password",
@@ -31,13 +31,14 @@ jest.mock("../../../../i18n/navigation", () => ({
       push: () => jest.fn(),
     };
   },
-  usePathname: jest.fn(() => "/"),
 }));
 
 jest.mock("../../../../store/auth/selectors", () => ({
   ...jest.requireActual("../../../../store/auth/selectors"),
   isLoadingSelector: jest.fn(() => true),
 }));
+
+jest.mock("../../../../hooks/shared/form/useFormSubmit", () => jest.fn());
 
 describe("LoginForm", () => {
   const renderComponent = () => render(<LoginForm />);
@@ -62,21 +63,22 @@ describe("LoginForm", () => {
       const user = userEvent.setup();
       renderComponent();
 
-      const emailInput = screen.getByTestId("emailInput");
-      fireEvent.change(emailInput, { target: { value: "test@example.com" } });
+      const emailInput: HTMLInputElement = screen.getByTestId("emailInput");
+      const passwordInput: HTMLInputElement =
+        screen.getByTestId("passwordInput");
+      const submitButton = screen.getByTestId("submitButton");
+
+      await user.type(emailInput, "test@example.com");
       expect(emailInput.value).toBe("test@example.com");
 
-      const passwordInput = screen.getByTestId("passwordInput");
-      fireEvent.change(passwordInput, { target: { value: "password123" } });
+      await user.type(passwordInput, "password123");
       expect(passwordInput.value).toBe("password123");
 
-      await user.click(screen.getByTestId("submitButton"));
+      await user.click(submitButton);
 
-      // await waitFor(() => {
-      //   expect(mockDispatch).toHaveBeenCalledWith(
-      //     fetchAuth({ email: "test@example.com", password: "password123" })
-      //   );
-      // });
+      await waitFor(() => {
+        expect(useFormSubmit).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
