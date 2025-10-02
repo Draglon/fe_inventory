@@ -5,7 +5,7 @@ import ProductAvailable from "../";
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "shared.status.free": "Free",
       "shared.status.repair": "Repair",
     };

@@ -36,7 +36,6 @@ const fetchAuthOperation = createAsyncThunk(
       // if (equals(pathOr(null, ["status"], error.toJSON()), HTTP_STATUSES.notFound)) {
       //   return alert("Не удалось авторизоваться");
       // }
-      console.log("error: ", error);
       return rejectWithValue(error.response.data);
     }
   },

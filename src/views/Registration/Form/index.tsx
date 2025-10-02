@@ -1,39 +1,19 @@
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import { Form } from "react-bootstrap";
-import * as formik from "formik";
+import { Formik } from "formik";
 
 import { useRouter } from "@/i18n/navigation";
-import { loginRoute } from "@/lib/routes";
+import useFormSubmit from "@/hooks/shared/form/useFormSubmit";
 import registrationSchema from "@/lib/yupLocalised/schemas/registration";
 import fetchRegister from "@/store/auth/operations/fetchRegister";
-import { useAppDispatch } from "@/store/hooks";
 import Button from "@/views/shared/bootstrap/Button";
-
-type FieldsProps = {
-  email: string;
-  password: string;
-};
 
 const Registration = () => {
   const t = useTranslations();
   const locale = useLocale();
   const router = useRouter();
-  const dispatch = useAppDispatch();
-  const { Formik } = formik;
-
-  const onSubmit = async (values: FieldsProps) => {
-    const data = await dispatch(fetchRegister(values));
-
-    if (!data.payload) {
-      return alert("Не удалось зарегистрироваться");
-    }
-
-    if ("token" in data.payload) {
-      localStorage.setItem("token", data.payload.token);
-      router.push(loginRoute, { locale });
-    }
-  };
+  const onSubmit = useFormSubmit(fetchRegister, { locale, router });
 
   return (
     <div className="signup mx-auto">
@@ -64,6 +44,7 @@ const Registration = () => {
                 value={values.email}
                 onChange={handleChange}
                 isValid={touched.email && !errors.email}
+                data-testid="emailInput"
               />
             </Form.Group>
             <Form.Group className="from__field">
@@ -77,9 +58,10 @@ const Registration = () => {
                 value={values.password}
                 onChange={handleChange}
                 isValid={touched.password && !errors.password}
+                data-testid="passwordInput"
               />
             </Form.Group>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" data-testid="submitButton">
               {t("shared.signUp")}
             </Button>
           </Form>

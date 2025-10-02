@@ -5,7 +5,7 @@ import GuestHeader from "../";
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "shared.logIn": "Log in",
       "shared.signUp": "Sign up",
     };
@@ -14,17 +14,6 @@ jest.mock("next-intl", () => ({
   useLocale: jest.fn(() => "en"),
 }));
 
-// declare global {
-//   namespace JSX {
-//     interface IntrinsicElements {
-//       "mock-logo": React.DetailedHTMLProps<
-//         React.HTMLAttributes<HTMLElement>,
-//         HTMLElement
-//       >;
-//     }
-//   }
-// }
-
 jest.mock("../../../../shared/Logo", () => () => (
   <mock-logo data-testid="logo" />
 ));
@@ -32,6 +21,7 @@ jest.mock("../../../../shared/Logo", () => () => (
 jest.mock("../../../../shared/NavigationLink", () => () => (
   <mock-navigation-link data-testid="navigation-link" />
 ));
+
 describe("GuestHeader", () => {
   describe("renders component", () => {
     const renderComponent = () => render(<GuestHeader />);

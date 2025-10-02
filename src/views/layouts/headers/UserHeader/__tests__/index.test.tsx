@@ -20,7 +20,7 @@ jest.mock("../../../../shared/Logo", () => () => (
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "shared.search": "Search",
     };
     return translation[key] || key;

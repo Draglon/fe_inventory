@@ -11,7 +11,7 @@ jest.mock("../../../store/hooks", () => ({
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "Products.title": "Products",
     };
     return translation[key] || key;

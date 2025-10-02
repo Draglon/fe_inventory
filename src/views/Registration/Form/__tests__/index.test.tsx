@@ -1,17 +1,13 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { render, screen, waitFor } from "@testing-library/react";
 
+import useFormSubmit from "@/hooks/shared/form/useFormSubmit";
 import RegistrationForm from "../index";
-
-const mockDispatch = jest.fn();
-jest.mock("../../../../store/hooks", () => ({
-  ...jest.requireActual("../../../../store/hooks"),
-  useAppDispatch: () => mockDispatch,
-}));
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "Registration.title": "Registration",
       "shared.email": "Email",
       "shared.password": "Password",
@@ -28,7 +24,6 @@ jest.mock("../../../../i18n/navigation", () => ({
       push: () => jest.fn(),
     };
   },
-  usePathname: jest.fn(() => "/"),
 }));
 
 jest.mock("../../../../store/auth/selectors", () => ({
@@ -36,14 +31,16 @@ jest.mock("../../../../store/auth/selectors", () => ({
   isLoadingSelector: jest.fn(() => true),
 }));
 
+jest.mock("../../../../hooks/shared/form/useFormSubmit", () => jest.fn());
+
 describe("RegistrationForm", () => {
+  const renderComponent = () => render(<RegistrationForm />);
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe("renders component", () => {
-    const renderComponent = () => render(<RegistrationForm />);
-
-    beforeEach(() => {
-      jest.clearAllMocks();
-    });
-
     it("with default props", () => {
       renderComponent();
 
@@ -51,6 +48,30 @@ describe("RegistrationForm", () => {
       expect(screen.getByText("Email")).toBeInTheDocument();
       expect(screen.getByText("Password")).toBeInTheDocument();
       expect(screen.getByText("Sign up")).toBeInTheDocument();
+    });
+  });
+
+  describe("onSubmit()", () => {
+    it("dispatches fetchRegister()", async () => {
+      const user = userEvent.setup();
+      renderComponent();
+
+      const emailInput: HTMLInputElement = screen.getByTestId("emailInput");
+      const passwordInput: HTMLInputElement =
+        screen.getByTestId("passwordInput");
+      const submitButton = screen.getByTestId("submitButton");
+
+      await user.type(emailInput, "test@example.com");
+      expect(emailInput.value).toBe("test@example.com");
+
+      await user.type(passwordInput, "password123");
+      expect(passwordInput.value).toBe("password123");
+
+      await user.click(submitButton);
+
+      await waitFor(() => {
+        expect(useFormSubmit).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });

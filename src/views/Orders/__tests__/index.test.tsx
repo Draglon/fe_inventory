@@ -5,7 +5,7 @@ import Orders from "../index";
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "Orders.title": "Orders",
     };
     return translation[key] || key;

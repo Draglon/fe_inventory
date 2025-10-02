@@ -13,6 +13,7 @@ jest.mock("../../layouts/GuestLayout", () => () => (
 jest.mock("../../Registration/Form", () => () => (
   <mock-registration-form data-testid="registration-form" />
 ));
+
 describe("Registration", () => {
   describe("renders component", () => {
     const renderComponent = () => render(<Registration />);

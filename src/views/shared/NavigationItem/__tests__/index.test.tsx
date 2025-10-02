@@ -5,7 +5,7 @@ import Navigation from "..";
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "shared.link": "Link text",
     };
     return translation[key] || key;

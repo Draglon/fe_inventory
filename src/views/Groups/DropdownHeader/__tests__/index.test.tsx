@@ -5,7 +5,7 @@ import DropdownHeader from "../index";
 
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
-    const translation = {
+    const translation: { [key: string]: string } = {
       "Groups.addProduct": "Add product",
     };
     return translation[key] || key;

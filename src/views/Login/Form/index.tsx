@@ -16,14 +16,14 @@ const LoginForm = () => {
   const locale = useLocale();
   const router = useRouter();
   const isLoading = useAppSelector(isLoadingSelector);
-  const handleLogin = useFormSubmit(fetchAuth, { locale, router });
+  const onSubmit = useFormSubmit(fetchAuth, { locale, router });
 
   return (
     <div className="login mx-auto">
       <h1 className="login__title text-center">{t("Login.title")}</h1>
       <Formik
         validationSchema={loginSchema}
-        onSubmit={handleLogin}
+        onSubmit={onSubmit}
         initialValues={{
           email: "",
           password: "",
