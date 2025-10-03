@@ -7,6 +7,7 @@ import { useRouter } from "@/i18n/navigation";
 import useFormSubmit from "@/hooks/shared/form/useFormSubmit";
 import registrationSchema from "@/lib/yupLocalised/schemas/registration";
 import fetchRegister from "@/store/auth/operations/fetchRegister";
+import InputField from "@/views/shared/InputField";
 import Button from "@/views/shared/bootstrap/Button";
 
 const Registration = () => {
@@ -33,34 +34,28 @@ const Registration = () => {
             noValidate
             onSubmit={handleSubmit}
           >
-            <Form.Group className="from__field">
-              <Form.Label className="from__label">
-                {t("shared.email")}
-              </Form.Label>
-              <Form.Control
-                className="from__input"
-                type="email"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-                isValid={touched.email && !errors.email}
-                data-testid="emailInput"
-              />
-            </Form.Group>
-            <Form.Group className="from__field">
-              <Form.Label className="from__label">
-                {t("shared.password")}
-              </Form.Label>
-              <Form.Control
-                className="from__input"
-                type="password"
-                name="password"
-                value={values.password}
-                onChange={handleChange}
-                isValid={touched.password && !errors.password}
-                data-testid="passwordInput"
-              />
-            </Form.Group>
+            <InputField
+              label={t("shared.email")}
+              id="email"
+              name="email"
+              type="email"
+              value={values.email}
+              touched={touched.email}
+              error={errors.email}
+              dataTestId="emailInput"
+              onChange={handleChange}
+            />
+            <InputField
+              label={t("shared.password")}
+              id="password"
+              name="password"
+              type="password"
+              value={values.password}
+              touched={touched.password}
+              error={errors.password}
+              dataTestId="passwordInput"
+              onChange={handleChange}
+            />
             <Button type="submit" className="w-full" data-testid="submitButton">
               {t("shared.signUp")}
             </Button>

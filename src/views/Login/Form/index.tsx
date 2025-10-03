@@ -9,6 +9,7 @@ import loginSchema from "@/lib/yupLocalised/schemas/login";
 import { useAppSelector } from "@/store/hooks";
 import fetchAuth from "@/store/auth/operations/fetchAuth";
 import { isLoadingSelector } from "@/store/auth/selectors";
+import InputField from "@/views/shared/InputField";
 import Button from "@/views/shared/bootstrap/Button";
 
 const LoginForm = () => {
@@ -30,37 +31,29 @@ const LoginForm = () => {
         }}
       >
         {({ handleSubmit, handleChange, values, touched, errors }) => (
-          <Form className="from login__form" noValidate onSubmit={handleSubmit}>
-            <Form.Group className="from__field">
-              <Form.Label className="from__label" htmlFor="email">
-                {t("shared.email")}
-              </Form.Label>
-              <Form.Control
-                className="from__input"
-                id="email"
-                type="email"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-                isValid={touched.email && !errors.email}
-                data-testid="emailInput"
-              />
-            </Form.Group>
-            <Form.Group className="from__field">
-              <Form.Label className="from__label" htmlFor="password">
-                {t("shared.password")}
-              </Form.Label>
-              <Form.Control
-                className="from__input"
-                id="password"
-                type="password"
-                name="password"
-                value={values.password}
-                onChange={handleChange}
-                isValid={touched.password && !errors.password}
-                data-testid="passwordInput"
-              />
-            </Form.Group>
+          <Form className="from login__form" onSubmit={handleSubmit}>
+            <InputField
+              label={t("shared.email")}
+              id="email"
+              name="email"
+              type="email"
+              value={values.email}
+              touched={touched.email}
+              error={errors.email}
+              dataTestId="emailInput"
+              onChange={handleChange}
+            />
+            <InputField
+              label={t("shared.password")}
+              id="password"
+              name="password"
+              type="password"
+              value={values.password}
+              touched={touched.password}
+              error={errors.password}
+              dataTestId="passwordInput"
+              onChange={handleChange}
+            />
             <Button
               type="submit"
               disabled={isLoading}
