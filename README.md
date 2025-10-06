@@ -1,15 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# How to run the project
 
-## Getting Started
+## Install NVM
 
-First, run the development server:
+To install or update nvm, you can use the install script using cURL:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+```
+
+More detail in [NVM Readme](https://github.com/creationix/nvm#install-script)
+
+Then install Node:
+
+```bash
+$ nvm install ^v20
+$ nvm use ^v20
+```
+
+## Install Node modules
+
+First, you need to install `yarn`. For more details visit [official guide](https://yarnpkg.com/en/docs/install).
+
+Then go to the project directory and run the following commands:
+
+```bash
+$ yarn install
+$ yarn dev
+```
+
+Visit `http://localhost:3000`
+
+## Run tests
+
+Execute the following command in project directory:
+
+```bash
+$ yarn test
+$ yarn test:watch
+$ yarn coverage
+$ yarn lint
+```
+
+You should test the following things:
+
+- Action Creators
+- Reducers
+- Middlewares
+- Components
+- Utils
+- Libs
+- Constants
+- Hooks
+
+## Run start
+
+You should run this command before build the project:
+
+```bash
+$ yarn start
+```
+
+## Run build
+
+Create a public directory:
+
+```bash
+$ yarn build
 ```
