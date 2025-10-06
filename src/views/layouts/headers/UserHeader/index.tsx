@@ -1,13 +1,32 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Row, Col } from "react-bootstrap";
 import { Clock } from "react-bootstrap-icons";
+import { useState, useEffect } from "react";
 
+import {
+  fullWeekdayName,
+  TimeDateFromISO,
+  fullDateWithLocaleOtherTypeFromISO,
+} from "@/utils/dateTime";
+import socket from "@/lib/socket";
 import Logo from "@/views/shared/Logo";
 import Input from "@/views/shared/bootstrap/Input";
 
 const UserHeader = () => {
   const t = useTranslations();
+  const locale = useLocale();
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    socket.on("currentTime", (time) => {
+      setCurrentTime(time);
+    });
+
+    // return () => {
+    //   socket.disconnect();
+    // };
+  }, []);
 
   return (
     <header className="header">
@@ -26,14 +45,23 @@ const UserHeader = () => {
         <Col lg="2">
           <div className="date-time">
             <Row>
-              <Col className="date-time__day">Вторник</Col>
+              <Col className="date-time__day">
+                {currentTime && fullWeekdayName(currentTime, locale)}
+              </Col>
             </Row>
             <Row>
               <Col>
-                <span className="date-time__date mr-16">06 Апр, 2017</span>
-                <span className="date-time__time">
-                  <Clock className="date-time__icon-clock" size="14" /> 17:20
-                </span>
+                {currentTime && (
+                  <>
+                    <span className="date-time__date mr-16">
+                      {fullDateWithLocaleOtherTypeFromISO(currentTime, locale)}
+                    </span>
+                    <span className="date-time__time">
+                      <Clock className="date-time__icon-clock" size="14" />
+                      <span>{TimeDateFromISO(currentTime)}</span>
+                    </span>
+                  </>
+                )}
               </Col>
             </Row>
           </div>

@@ -13,6 +13,14 @@
   font-size: 14px;
 }
 
+.date-time__day {
+  text-transform: capitalize;
+}
+
+.date-time__date {
+  text-transform: uppercase;
+}
+
 .date-time__icon-clock {
   color: var(--green);
   margin-right: 4px;
