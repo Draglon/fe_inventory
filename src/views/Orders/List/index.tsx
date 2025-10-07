@@ -16,11 +16,22 @@ import deleteOrder from "@/store/orders/operations/deleteOrder";
 import RemoveButton from "@/views/shared/RemoveButton";
 import Button from "@/views/shared/bootstrap/Button";
 
+type OrdersType = {
+  _id: string;
+  createdAt: string;
+  date: string;
+  description: string;
+  products: string[];
+  title: string;
+  updatedAt: string;
+  userId?: string;
+};
+
 const Orders = () => {
   const t = useTranslations("shared");
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(isLoadingSelector);
-  const orders = useAppSelector(ordersSelector);
+  const orders: OrdersType[] = useAppSelector(ordersSelector);
 
   console.log("loader: ", isLoading);
 
@@ -29,14 +40,14 @@ const Orders = () => {
     dispatch(hideModalAction());
   };
 
-  const showModal = (item: any) => () => {
+  const showModal = (item: OrdersType) => () => {
     dispatch(
       showModalAction({
         modalType: "REMOVE_ORDER_MODAL",
         modalProps: {
           title: t("modal.removeOrder.title"),
           product: item,
-          onRemove: handleRemove(item.id),
+          onRemove: handleRemove(item._id),
         },
       })
     );
@@ -51,8 +62,8 @@ const Orders = () => {
       <Table className="orders__table">
         <tbody>
           {isPresent(orders) &&
-            orders.map((item: any) => (
-              <tr className="orders__item" key={item.id}>
+            (orders as OrdersType[]).map((item: OrdersType) => (
+              <tr className="orders__item" key={item._id}>
                 <td className="orders__title">
                   <a href="#" className="orders__link">
                     {item?.title}

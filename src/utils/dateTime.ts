@@ -14,6 +14,6 @@ export const fullDateWithLocaleOtherTypeFromISO = (ISOString: string, locale: st
   const year = DateTime.fromISO(ISOString).year;
 
   return `${day} ${monthShort}, ${year}`;
-}
+};
 
-export const fullWeekdayName = (ISOString: string, locale: string) => DateTime.fromISO(ISOString).setLocale(locale).toFormat('EEEE');
+export const fullWeekdayName = (ISOString: string, locale: string) => DateTime.fromISO(ISOString).setLocale(locale).toFormat("EEEE");
