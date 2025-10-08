@@ -30,6 +30,9 @@ const shared = {
       },
       "removeParish": {
         "title": "Are you sure you want to remove this parish?",
+      },
+      "removeOrder": {
+        "title": "Are you sure you want to remove this Order?",
       }
     },
   },

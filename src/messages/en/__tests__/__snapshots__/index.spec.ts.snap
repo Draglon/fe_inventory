@@ -119,6 +119,9 @@ exports[`en locale matches snapshot 1`] = `
     "logIn": "Log in",
     "logout": "Log out",
     "modal": {
+      "removeOrder": {
+        "title": "Are you sure you want to remove this Order?",
+      },
       "removeParish": {
         "title": "Are you sure you want to remove this parish?",
       },

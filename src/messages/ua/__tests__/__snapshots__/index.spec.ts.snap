@@ -119,6 +119,9 @@ exports[`ua locale matches snapshot 1`] = `
     "logIn": "Увійти",
     "logout": "Вийти",
     "modal": {
+      "removeOrder": {
+        "title": "Ви впевнені, що хочете видалити цю заказ?",
+      },
       "removeParish": {
         "title": "Ви впевнені, що хочете видалити цю парафію?",
       },

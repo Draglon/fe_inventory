@@ -5,7 +5,7 @@ import deleteOrder from "../operations/deleteOrder";
 
 describe("ordersSlice reducer", () => {
   const initialState = {
-    data: null,
+    data: [],
     status: undefined,
     error: null,
   };
@@ -15,9 +15,9 @@ describe("ordersSlice reducer", () => {
       it("should handle fetchOrders.pending", () => {
         const newState = ordersSlice.reducer(initialState, fetchOrders.pending());
 
-        expect(newState.status).toBe("loading");
-        expect(newState.data).toBe(null);
-        expect(newState.error).toBe(null);
+        expect(newState.status).toEqual("loading");
+        expect(newState.data).toEqual([]);
+        expect(newState.error).toEqual(null);
       });
 
       it("should handle fetchOrders.fulfilled", () => {
@@ -25,9 +25,9 @@ describe("ordersSlice reducer", () => {
         const payload = { data: "data" };
         const newState = ordersSlice.reducer(defaultState, fetchOrders.fulfilled(payload));
 
-        expect(newState.status).toBe("loaded");
-        expect(newState.data).toBe(payload);
-        expect(newState.error).toBe(null);
+        expect(newState.status).toEqual("loaded");
+        expect(newState.data).toEqual(payload);
+        expect(newState.error).toEqual(null);
       });
 
       it("should handle fetchOrders.rejected", () => {
@@ -35,9 +35,9 @@ describe("ordersSlice reducer", () => {
         const errorPayload = { message: "Failed to create GET request" };
         const newState = ordersSlice.reducer(defaultState, fetchOrders.rejected(null, "requestId", null, errorPayload));
 
-        expect(newState.status).toBe("error");
-        expect(newState.data).toBe(null);
-        expect(newState.error).toBe(errorPayload);
+        expect(newState.status).toEqual("error");
+        expect(newState.data).toEqual([]);
+        expect(newState.error).toEqual(errorPayload);
       });
     });
 
@@ -45,9 +45,9 @@ describe("ordersSlice reducer", () => {
       it("should handle createOrder.pending", () => {
         const newState = ordersSlice.reducer(initialState, createOrder.pending());
 
-        expect(newState.status).toBe("loading");
-        expect(newState.data).toBe(null);
-        expect(newState.error).toBe(null);
+        expect(newState.status).toEqual("loading");
+        expect(newState.data).toEqual([]);
+        expect(newState.error).toEqual(null);
       });
 
       it("should handle createOrder.fulfilled", () => {
@@ -55,9 +55,9 @@ describe("ordersSlice reducer", () => {
         const payload = { data: "data" };
         const newState = ordersSlice.reducer(defaultState, createOrder.fulfilled(payload));
 
-        expect(newState.status).toBe("loaded");
-        expect(newState.data).toBe(payload);
-        expect(newState.error).toBe(null);
+        expect(newState.status).toEqual("loaded");
+        expect(newState.data).toEqual(payload);
+        expect(newState.error).toEqual(null);
       });
 
       it("should handle createOrder.rejected", () => {
@@ -65,9 +65,9 @@ describe("ordersSlice reducer", () => {
         const errorPayload = { message: "Failed to create POST request" };
         const newState = ordersSlice.reducer(defaultState, createOrder.rejected(null, "requestId", null, errorPayload));
 
-        expect(newState.status).toBe("error");
-        expect(newState.data).toEqual(null);
-        expect(newState.error).toBe(errorPayload);
+        expect(newState.status).toEqual("error");
+        expect(newState.data).toEqual([]);
+        expect(newState.error).toEqual(errorPayload);
       });
     });
 
@@ -75,19 +75,19 @@ describe("ordersSlice reducer", () => {
       it("should handle deleteOrder.pending", () => {
         const newState = ordersSlice.reducer(initialState, deleteOrder.pending());
 
-        expect(newState.status).toBe("loading");
-        expect(newState.data).toBe(null);
-        expect(newState.error).toBe(null);
+        expect(newState.status).toEqual("loading");
+        expect(newState.data).toEqual([]);
+        expect(newState.error).toEqual(null);
       });
 
       it("should handle deleteOrder.fulfilled", () => {
-        const defaultState = { ...initialState, status: "loading" };
-        const payload = { data: "data" };
+        const defaultState = { ...initialState, data: [{ _id: "1" }, { _id: "2" }], status: "loading" };
+        const payload = "1";
         const newState = ordersSlice.reducer(defaultState, deleteOrder.fulfilled(payload));
 
-        expect(newState.status).toBe("loaded");
-        expect(newState.data).toBe(payload);
-        expect(newState.error).toBe(null);
+        expect(newState.status).toEqual("loaded");
+        expect(newState.data).toEqual([{ _id: "2" }]);
+        expect(newState.error).toEqual(null);
       });
 
       it("should handle deleteOrder.rejected", () => {
@@ -95,9 +95,9 @@ describe("ordersSlice reducer", () => {
         const errorPayload = { message: "Failed to create DELETE request" };
         const newState = ordersSlice.reducer(defaultState, deleteOrder.rejected(null, "requestId", null, errorPayload));
 
-        expect(newState.status).toBe("error");
-        expect(newState.data).toEqual(null);
-        expect(newState.error).toBe(errorPayload);
+        expect(newState.status).toEqual("error");
+        expect(newState.data).toEqual([]);
+        expect(newState.error).toEqual(errorPayload);
       });
     });
   });

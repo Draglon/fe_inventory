@@ -5,10 +5,8 @@ import { Table } from "react-bootstrap";
 import { ListUl } from "react-bootstrap-icons";
 
 import isPresent from "@/utils/isPresent";
-import {
-  showModal as showModalAction,
-  hideModal as hideModalAction,
-} from "@/store/modal/actions";
+import removeAndHideModal from "@/utils/removeAndHideModal";
+import { showModal as showModalAction } from "@/store/modal/actions";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { isLoadingSelector, ordersSelector } from "@/store/orders/selectors";
 import fetchOrders from "@/store/orders/operations/fetchOrders";
@@ -27,27 +25,22 @@ type OrdersType = {
   userId?: string;
 };
 
-const Orders = () => {
-  const t = useTranslations("shared");
+const OrdersList = () => {
+  const t = useTranslations();
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(isLoadingSelector);
-  const orders: OrdersType[] = useAppSelector(ordersSelector);
+  const orders = useAppSelector(ordersSelector);
 
   console.log("loader: ", isLoading);
-
-  const handleRemove = (id: string) => () => {
-    dispatch(deleteOrder({ id }));
-    dispatch(hideModalAction());
-  };
 
   const showModal = (item: OrdersType) => () => {
     dispatch(
       showModalAction({
-        modalType: "REMOVE_ORDER_MODAL",
+        modalType: "REMOVE_MODAL",
         modalProps: {
-          title: t("modal.removeOrder.title"),
+          title: t("shared.modal.removeOrder.title"),
           product: item,
-          onRemove: handleRemove(item._id),
+          onRemove: removeAndHideModal(dispatch, deleteOrder, { id: item._id }),
         },
       })
     );
@@ -55,14 +48,14 @@ const Orders = () => {
 
   useEffect(() => {
     dispatch(fetchOrders());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="orders">
-      <Table className="orders__table">
-        <tbody>
-          {isPresent(orders) &&
-            (orders as OrdersType[]).map((item: OrdersType) => (
+      {isPresent(orders) && (
+        <Table className="orders__table" data-testid="ordersTable">
+          <tbody>
+            {(orders as OrdersType[]).map((item: OrdersType) => (
               <tr className="orders__item" key={item._id}>
                 <td className="orders__title">
                   <a href="#" className="orders__link">
@@ -94,10 +87,11 @@ const Orders = () => {
                 </td>
               </tr>
             ))}
-        </tbody>
-      </Table>
+          </tbody>
+        </Table>
+      )}
     </div>
   );
 };
 
-export default Orders;
+export default OrdersList;

@@ -13,9 +13,9 @@ const deleteOrderOperation = createAsyncThunk(
   async (params: ParamsType, { rejectWithValue }) => {
     try {
       const { id } = params;
-      const { data } = await axios.delete(orderRoute(id));
-  
-      return data;
+      await axios.delete(orderRoute(id));
+
+      return id;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
     }
