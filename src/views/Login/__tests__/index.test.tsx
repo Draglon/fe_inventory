@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import LoginForm from "@/views/Login/Form";
 
+import LoginForm from "@/views/Login/Form";
 import Login from "../index";
 
 jest.mock("../../layouts/GuestLayout", () => () => (

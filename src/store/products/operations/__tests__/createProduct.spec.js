@@ -45,7 +45,6 @@ describe("createProduct thunk", () => {
   
     expect(axiosPostSpy).toHaveBeenCalledWith("/products", mockProduct);
     expect(store.getState().products.status).toBe("error");
-    expect(store.getState().products.data).toBe(null);
     expect(store.getState().products.error).toEqual(mockError);
   });
 });

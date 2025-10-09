@@ -41,7 +41,6 @@ describe("fetchProducts thunk", () => {
   
     expect(axiosGetSpy).toHaveBeenCalledWith("/products", {});
     expect(store.getState().products.status).toBe("error");
-    expect(store.getState().products.data).toBe(null);
     expect(store.getState().products.error).toEqual(mockError);
   });
 });

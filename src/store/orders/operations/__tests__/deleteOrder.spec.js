@@ -32,9 +32,9 @@ describe("deleteOrder thunk", () => {
 
   it("should handle successful DELETE request", async () => {
     axiosDeleteSpy.mockResolvedValueOnce({
-      data: { message: 'Resource deleted successfully' },
+      data: { message: "Resource deleted successfully" },
       status: 200,
-      statusText: 'OK',
+      statusText: "OK",
       headers: {},
       config: {},
       request: {}

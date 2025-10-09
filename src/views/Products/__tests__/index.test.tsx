@@ -3,12 +3,6 @@ import { render, screen } from "@testing-library/react";
 
 import Products from "../index";
 
-const mockDispatch = jest.fn();
-jest.mock("../../../store/hooks", () => ({
-  ...jest.requireActual("../../../store/hooks"),
-  useAppDispatch: () => mockDispatch,
-}));
-
 jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
     const translation: { [key: string]: string } = {

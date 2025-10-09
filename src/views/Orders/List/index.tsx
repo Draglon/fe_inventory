@@ -8,7 +8,7 @@ import isPresent from "@/utils/isPresent";
 import removeAndHideModal from "@/utils/removeAndHideModal";
 import { showModal as showModalAction } from "@/store/modal/actions";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { isLoadingSelector, ordersSelector } from "@/store/orders/selectors";
+import { ordersSelector } from "@/store/orders/selectors";
 import fetchOrders from "@/store/orders/operations/fetchOrders";
 import deleteOrder from "@/store/orders/operations/deleteOrder";
 import RemoveButton from "@/views/shared/RemoveButton";
@@ -28,10 +28,7 @@ type OrdersType = {
 const OrdersList = () => {
   const t = useTranslations();
   const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(isLoadingSelector);
   const orders = useAppSelector(ordersSelector);
-
-  console.log("loader: ", isLoading);
 
   const showModal = (item: OrdersType) => () => {
     dispatch(
@@ -48,7 +45,7 @@ const OrdersList = () => {
 
   useEffect(() => {
     dispatch(fetchOrders());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="orders">
