@@ -7,8 +7,20 @@ describe("productsSlice reducer", () => {
   const initialState = {
     data: [],
     status: undefined,
+    filters: {
+      type: "",
+      specification: "",
+    },
     error: null,
   };
+
+  it("should handle setFilterParams()", () => {
+    const productsState = { type: "new_type" };
+    const action = productsSlice.actions.setFilterParams(productsState);
+    const newState = productsSlice.reducer(initialState, action);
+
+    expect(newState.filters).toEqual({ type: "new_type", specification: "" });
+  });
 
   describe("productsSlice extraReducers for", () => {
     describe("fetchProducts", () => {

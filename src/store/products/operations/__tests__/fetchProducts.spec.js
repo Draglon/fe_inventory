@@ -7,6 +7,12 @@ import productsReducer from "../../reducer";
 describe("fetchProducts thunk", () => {
   let store;
   let axiosGetSpy;
+  const mockFilters = {
+    filters: {
+      type: "",
+      specification: "",
+    }
+  };
 
   beforeEach(() => {
     axiosGetSpy = jest.spyOn(axios, "get");
@@ -27,7 +33,7 @@ describe("fetchProducts thunk", () => {
 
     await store.dispatch(fetchProducts());
 
-    expect(axiosGetSpy).toHaveBeenCalledWith("/products", {});
+    expect(axiosGetSpy).toHaveBeenCalledWith("/products", { params: mockFilters });
     expect(store.getState().products.status).toBe("loaded");
     expect(store.getState().products.data).toEqual(mockProducts);
     expect(store.getState().products.error).toBe(null);
@@ -39,7 +45,7 @@ describe("fetchProducts thunk", () => {
   
     await store.dispatch(fetchProducts());
   
-    expect(axiosGetSpy).toHaveBeenCalledWith("/products", {});
+    expect(axiosGetSpy).toHaveBeenCalledWith("/products", { params: mockFilters });
     expect(store.getState().products.status).toBe("error");
     expect(store.getState().products.error).toEqual(mockError);
   });

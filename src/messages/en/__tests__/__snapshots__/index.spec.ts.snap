@@ -40,6 +40,7 @@ exports[`en locale matches snapshot 1`] = `
       "specification": {
         "label": "Specification:",
         "option": {
+          "all": "All",
           "monitor": "Monitor",
           "phone": "Phone",
         },
@@ -47,6 +48,7 @@ exports[`en locale matches snapshot 1`] = `
       "type": {
         "label": "Type:",
         "option": {
+          "all": "All",
           "monitor": "Monitor",
           "phone": "Phone",
         },

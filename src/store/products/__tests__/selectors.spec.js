@@ -56,4 +56,20 @@ describe("Products selectors", () => {
       expect(selectors.isLoadingSelector(state)).toEqual(false);
     });
   });
+
+  describe("appliedFiltersSelector()", () => {
+    it("returns filters", () => {
+      const initialState = {
+        filters: {
+          type: "type",
+        },
+      };
+  
+      const state = {
+        products: initialState,
+      };
+
+      expect(selectors.appliedFiltersSelector(state)).toEqual(initialState.filters);
+    });
+  });
 });

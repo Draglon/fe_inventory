@@ -6,6 +6,10 @@ import deleteProduct from "./operations/deleteProduct";
 
 const initialState = {
   data: [],
+  filters: {
+    type: "",
+    specification: "",
+  },
   status: undefined,
   error: null,
 };
@@ -13,6 +17,11 @@ const initialState = {
 export const productsSlice = createSlice({
   name: "products",
   initialState,
+  reducers: {
+    setFilterParams: (state, action) => {
+      state.filters = { ...state.filters, ...action.payload };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
       state.status = "loading";

@@ -40,6 +40,7 @@ exports[`ua locale matches snapshot 1`] = `
       "specification": {
         "label": "Специфікація:",
         "option": {
+          "all": "Всі",
           "monitor": "Монітор",
           "phone": "Телефон",
         },
@@ -47,6 +48,7 @@ exports[`ua locale matches snapshot 1`] = `
       "type": {
         "label": "Тип:",
         "option": {
+          "all": "Всі",
           "monitor": "Монітор",
           "phone": "Телефон",
         },

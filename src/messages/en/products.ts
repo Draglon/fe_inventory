@@ -9,6 +9,7 @@ const products = {
       "type": {
         "label": "Type:",
         "option": {
+          "all": "All",
           "phone": "Phone",
           "monitor": "Monitor"
         }
@@ -16,6 +17,7 @@ const products = {
       "specification": {
         "label": "Specification:",
         "option": {
+          "all": "All",
           "phone": "Phone",
           "monitor": "Monitor"
         }

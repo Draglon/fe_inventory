@@ -40,6 +40,7 @@ exports[`ru locale matches snapshot 1`] = `
       "specification": {
         "label": "Спецификация:",
         "option": {
+          "all": "Все",
           "monitor": "Монитор",
           "phone": "Телефон",
         },
@@ -47,6 +48,7 @@ exports[`ru locale matches snapshot 1`] = `
       "type": {
         "label": "Тип:",
         "option": {
+          "all": "Все",
           "monitor": "Монитор",
           "phone": "Телефон",
         },
