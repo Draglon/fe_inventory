@@ -35,6 +35,7 @@ const shared = {
         "title": "Are you sure you want to remove this Order?",
       }
     },
+    "product": "Product"
   },
 };
 

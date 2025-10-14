@@ -19,6 +19,7 @@ jest.mock("next-intl", () => ({
     };
     return translation[key] || key;
   }),
+  useLocale: jest.fn(() => "en"),
 }));
 
 jest.mock("../../../../store/orders/selectors", () => ({
@@ -33,7 +34,7 @@ describe("OrdersList", () => {
       _id: "1",
       createdAt: "createdAt",
       updatedAt: "updatedAt",
-      date: "date",
+      date: "2025-06-29T09:09:33.000Z",
       description: "Order description",
       products: [],
       title: "Order title",
@@ -60,6 +61,8 @@ describe("OrdersList", () => {
 
       expect(screen.getByTestId("ordersTable")).toBeInTheDocument();
       expect(screen.getByText("Order title")).toBeInTheDocument();
+      expect(screen.getByText("29 / 09")).toBeInTheDocument();
+      expect(screen.getByText("29 / June / 2025")).toBeInTheDocument();
     });
 
     it("dispatches showModal() when press remove button", async () => {

@@ -18,7 +18,7 @@ const fetchProductsOperation = createAsyncThunk(
     const state = getState();
     const params: paramsTypes = {
       filters: appliedFiltersSelector(state),
-    }
+    };
 
     try {
       const { data } = await axios.get(productsRoute, { params });

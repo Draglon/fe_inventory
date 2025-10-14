@@ -134,6 +134,7 @@ exports[`ua locale matches snapshot 1`] = `
     "next": "Наступний",
     "password": "Пароль",
     "previous": "Попередній",
+    "product": "Продукту",
     "profile": "Профіль",
     "save": "Зберегти",
     "search": "Пошук",

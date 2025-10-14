@@ -134,6 +134,7 @@ exports[`ru locale matches snapshot 1`] = `
     "next": "Следующий",
     "password": "Пароль",
     "previous": "Предыдущий",
+    "product": "Продукта",
     "profile": "Профиль",
     "save": "Сохранять",
     "search": "Поиск",

@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
+import { usePathname } from "@/i18n/navigation";
 import GuestHeader from "../";
 
 jest.mock("next-intl", () => ({
@@ -12,6 +13,10 @@ jest.mock("next-intl", () => ({
     return translation[key] || key;
   }),
   useLocale: jest.fn(() => "en"),
+}));
+
+jest.mock("../../../../../i18n/navigation", () => ({
+  usePathname: jest.fn(() => "/"),
 }));
 
 jest.mock("../../../../shared/Logo", () => () => (
@@ -26,7 +31,22 @@ describe("GuestHeader", () => {
   describe("renders component", () => {
     const renderComponent = () => render(<GuestHeader />);
 
-    it("with default props", () => {
+    it("with pathname === '/'", () => {
+      renderComponent();
+
+      expect(screen.getByTestId("logo")).toBeInTheDocument();
+      expect(screen.getAllByTestId("navigation-link")).toHaveLength(1);
+    });
+
+    it("with pathname === '/registration'", () => {
+      renderComponent();
+
+      expect(screen.getByTestId("logo")).toBeInTheDocument();
+      expect(screen.getAllByTestId("navigation-link")).toHaveLength(1);
+    });
+
+    it("with other pathname", () => {
+      usePathname.mockReturnValueOnce("/example");
       renderComponent();
 
       expect(screen.getByTestId("logo")).toBeInTheDocument();

@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 
-export const TimeDateFromISO = (ISOString: string) => DateTime.fromISO(ISOString).toFormat("hh:mm a");
+export const timeDateFromISO = (ISOString: string) => DateTime.fromISO(ISOString).toFormat("hh:mm a");
 
 export const shortDateFromISO = (ISOString: string) => DateTime.fromISO(ISOString).toFormat("dd / mm");
 

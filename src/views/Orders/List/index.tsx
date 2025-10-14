@@ -1,11 +1,13 @@
 "use client";
 import { useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Table } from "react-bootstrap";
 import { ListUl } from "react-bootstrap-icons";
 
 import isPresent from "@/utils/isPresent";
+import totalPrice from "@/utils/totalPrice";
 import removeAndHideModal from "@/utils/removeAndHideModal";
+import { shortDateFromISO, fullDateWithLocaleFromISO } from "@/utils/dateTime";
 import { showModal as showModalAction } from "@/store/modal/actions";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { ordersSelector } from "@/store/orders/selectors";
@@ -13,13 +15,20 @@ import fetchOrders from "@/store/orders/operations/fetchOrders";
 import deleteOrder from "@/store/orders/operations/deleteOrder";
 import RemoveButton from "@/views/shared/RemoveButton";
 import Button from "@/views/shared/bootstrap/Button";
+import Price from "@/views/shared/Price";
+
+type PriceProps = {
+  value: number;
+  symbol: string;
+  isDefault: number;
+};
 
 type OrdersType = {
   _id: string;
   createdAt: string;
   date: string;
   description: string;
-  products: string[];
+  products: PriceProps[];
   title: string;
   updatedAt: string;
   userId?: string;
@@ -27,6 +36,7 @@ type OrdersType = {
 
 const OrdersList = () => {
   const t = useTranslations();
+  const locale = useLocale();
   const dispatch = useAppDispatch();
   const orders = useAppSelector(ordersSelector);
 
@@ -68,16 +78,32 @@ const OrdersList = () => {
                   </Button>
                 </td>
                 <td className="orders__count">
-                  <div className="orders__quantity">23</div>
-                  <div className="orders__text">Продукта</div>
+                  <div className="orders__quantity">{item.products.length}</div>
+                  <div className="orders__text">{t("shared.product")}</div>
                 </td>
                 <td className="orders__date">
-                  <div className="orders__date-short">04 / 12</div>
-                  <div className="orders__date-long">06 / Апр / 2017</div>
+                  <div className="orders__date-short">
+                    {shortDateFromISO(item?.date)}
+                  </div>
+                  <div className="orders__date-long">
+                    {fullDateWithLocaleFromISO(item?.date, locale)}
+                  </div>
                 </td>
                 <td className="orders__price">
-                  <div className="orders__price-usd">2500 $</div>
-                  <div className="orders__price-uah">250 000.50 UAH</div>
+                  <Price
+                    className="products__price-usd"
+                    price={{
+                      value: Number(totalPrice(item.products, "USD")),
+                      symbol: "USD",
+                    }}
+                  />
+                  <Price
+                    className="products__price-uah"
+                    price={{
+                      value: Number(totalPrice(item.products, "UAH")),
+                      symbol: "UAH",
+                    }}
+                  />
                 </td>
                 <td className="orders__remove">
                   <RemoveButton onClick={showModal(item)} />

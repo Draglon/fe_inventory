@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 import {
   fullWeekdayName,
-  TimeDateFromISO,
+  timeDateFromISO,
   fullDateWithLocaleOtherTypeFromISO,
 } from "@/utils/dateTime";
 import socket from "@/lib/socket";
@@ -58,7 +58,7 @@ const UserHeader = () => {
                     </span>
                     <span className="date-time__time">
                       <Clock className="date-time__icon-clock" size="14" />
-                      <span>{TimeDateFromISO(currentTime)}</span>
+                      <span>{timeDateFromISO(currentTime)}</span>
                     </span>
                   </>
                 )}
