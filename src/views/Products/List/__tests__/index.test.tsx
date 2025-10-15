@@ -92,7 +92,7 @@ describe("ProductsList", () => {
       expect(screen.getByText("29 / 09")).toBeInTheDocument();
       expect(screen.getByText("29 / June / 2024")).toBeInTheDocument();
       expect(screen.getByText("100 $")).toBeInTheDocument();
-      expect(screen.getByText("4200 UAH")).toBeInTheDocument();
+      expect(screen.getByText("4 200 UAH")).toBeInTheDocument();
       expect(screen.getByTestId("btnRemove")).toBeInTheDocument();
     });
 

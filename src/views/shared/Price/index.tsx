@@ -1,6 +1,8 @@
 "use client";
 import clsx from "clsx";
 
+import formatPrice from "@/utils/formatPrice";
+
 type PriceProps = {
   className?: string;
   price: { value: number; symbol: string };
@@ -10,7 +12,7 @@ type PriceProps = {
 const Price = ({ className, price, testid }: PriceProps) => {
   return (
     <div className={clsx("text-nowrap", className)} data-testid={testid}>
-      {price.value} {price.symbol}
+      {formatPrice(price)}
     </div>
   );
 };

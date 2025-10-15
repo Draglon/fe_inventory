@@ -16,6 +16,7 @@ jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockImplementation(() => (key: string) => {
     const translation: { [key: string]: string } = {
       "shared.modal.removeOrder.title": "Удалить ордер",
+      "shared.product": "Product",
     };
     return translation[key] || key;
   }),
@@ -36,7 +37,14 @@ describe("OrdersList", () => {
       updatedAt: "updatedAt",
       date: "2025-06-29T09:09:33.000Z",
       description: "Order description",
-      products: [],
+      products: [
+        {
+          price: [
+            { value: 100, symbol: "USD" },
+            { value: 4200, symbol: "UAH" },
+          ],
+        },
+      ],
       title: "Order title",
       userId: "",
     },
@@ -63,6 +71,10 @@ describe("OrdersList", () => {
       expect(screen.getByText("Order title")).toBeInTheDocument();
       expect(screen.getByText("29 / 09")).toBeInTheDocument();
       expect(screen.getByText("29 / June / 2025")).toBeInTheDocument();
+      expect(screen.getByText("Product")).toBeInTheDocument();
+      expect(screen.getByText("1")).toBeInTheDocument();
+      expect(screen.getByText("100 $")).toBeInTheDocument();
+      expect(screen.getByText("4 200 UAH")).toBeInTheDocument();
     });
 
     it("dispatches showModal() when press remove button", async () => {

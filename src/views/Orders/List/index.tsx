@@ -62,54 +62,59 @@ const OrdersList = () => {
       {isPresent(orders) && (
         <Table className="orders__table" data-testid="ordersTable">
           <tbody>
-            {(orders as OrdersType[]).map((item: OrdersType) => (
-              <tr className="orders__item" key={item._id}>
-                <td className="orders__title">
-                  <a href="#" className="orders__link">
-                    {item?.title}
-                  </a>
-                </td>
-                <td className="orders__list">
-                  <Button
-                    className="orders__button-list"
-                    variant="outline-dark"
-                  >
-                    <ListUl className="orders__icon-list" size="24" />
-                  </Button>
-                </td>
-                <td className="orders__count">
-                  <div className="orders__quantity">{item.products.length}</div>
-                  <div className="orders__text">{t("shared.product")}</div>
-                </td>
-                <td className="orders__date">
-                  <div className="orders__date-short">
-                    {shortDateFromISO(item?.date)}
-                  </div>
-                  <div className="orders__date-long">
-                    {fullDateWithLocaleFromISO(item?.date, locale)}
-                  </div>
-                </td>
-                <td className="orders__price">
-                  <Price
-                    className="products__price-usd"
-                    price={{
-                      value: Number(totalPrice(item.products, "USD")),
-                      symbol: "USD",
-                    }}
-                  />
-                  <Price
-                    className="products__price-uah"
-                    price={{
-                      value: Number(totalPrice(item.products, "UAH")),
-                      symbol: "UAH",
-                    }}
-                  />
-                </td>
-                <td className="orders__remove">
-                  <RemoveButton onClick={showModal(item)} />
-                </td>
-              </tr>
-            ))}
+            {(orders as OrdersType[]).map((item: OrdersType) => {
+              const totalPriceUSD = totalPrice(item.products, "USD");
+              const totalPriceUAH = totalPrice(item.products, "UAH");
+
+              return (
+                <tr className="orders__item" key={item._id}>
+                  <td className="orders__title">
+                    <a href="#" className="orders__link">
+                      {item?.title}
+                    </a>
+                  </td>
+                  <td className="orders__list">
+                    <Button
+                      className="orders__button-list"
+                      variant="outline-dark"
+                    >
+                      <ListUl className="orders__icon-list" size="24" />
+                    </Button>
+                  </td>
+                  <td className="orders__count">
+                    <div className="orders__quantity">
+                      {item.products.length}
+                    </div>
+                    <div className="orders__text">{t("shared.product")}</div>
+                  </td>
+                  <td className="orders__date">
+                    <div className="orders__date-short">
+                      {shortDateFromISO(item?.date)}
+                    </div>
+                    <div className="orders__date-long">
+                      {fullDateWithLocaleFromISO(item?.date, locale)}
+                    </div>
+                  </td>
+                  <td className="orders__price">
+                    {totalPriceUSD > 0 && (
+                      <Price
+                        className="products__price-usd"
+                        price={{ value: totalPriceUSD, symbol: "USD" }}
+                      />
+                    )}
+                    {totalPriceUAH > 0 && (
+                      <Price
+                        className="products__price-uah"
+                        price={{ value: totalPriceUAH, symbol: "UAH" }}
+                      />
+                    )}
+                  </td>
+                  <td className="orders__remove">
+                    <RemoveButton onClick={showModal(item)} />
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </Table>
       )}

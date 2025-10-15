@@ -18,7 +18,7 @@ describe("Price", () => {
       renderComponent();
 
       expect(screen.getByTestId("priceTestid")).toHaveClass("price-classes");
-      expect(screen.getByText("100 USD")).toBeInTheDocument();
+      expect(screen.getByText("100 $")).toBeInTheDocument();
     });
   });
 });
