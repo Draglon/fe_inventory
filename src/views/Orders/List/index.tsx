@@ -98,13 +98,13 @@ const OrdersList = () => {
                   <td className="orders__price">
                     {totalPriceUSD > 0 && (
                       <Price
-                        className="products__price-usd"
+                        className="orders__price-usd"
                         price={{ value: totalPriceUSD, symbol: "USD" }}
                       />
                     )}
                     {totalPriceUAH > 0 && (
                       <Price
-                        className="products__price-uah"
+                        className="orders__price-uah"
                         price={{ value: totalPriceUAH, symbol: "UAH" }}
                       />
                     )}
