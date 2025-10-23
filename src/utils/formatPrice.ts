@@ -10,7 +10,7 @@ export default (price: PriceProps) => {
   const formattedPrice = new Intl.NumberFormat("fr-FR", {
     minimumFractionDigits: fractionDigits,
     maximumFractionDigits: fractionDigits
-  }).format(price.value).replaceAll(' ', ' ').replace(',', '. ');
+  }).format(price.value).replaceAll(" ", " ").replace(",", ". ");
   const symbol = price.symbol === "USD" ? "$" : price.symbol;
 
   return `${formattedPrice} ${symbol}`;
