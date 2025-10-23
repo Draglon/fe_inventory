@@ -17,7 +17,7 @@ COPY . .
 RUN yarn build
 
 # Второй этап для продакшн образа
-FROM node:20-alpine AS runner
+FROM node:latest AS runner
 WORKDIR /app
 
 # Скопируйте рабочие зависимости из предыдущего этапа
@@ -33,7 +33,7 @@ COPY --from=builder /app/next.config.ts /app/next.config.ts
 EXPOSE 3000
 
 # Команда для запуска приложения
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]
 
 
 
