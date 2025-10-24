@@ -1,9 +1,10 @@
 version: '3.8'
 
 services:
-  # Клиентская часть (React) - может быть в отдельном Dockerfile или собираться в этот же
   frontend:
-    build: ../fe_inventory # Путь к директории с Dockerfile для фронтенда
+    build: ../fe_inventory
+    container_name: frontend
+    stdin_open: true
     ports:
       - "3000:3000"
     networks:
@@ -11,19 +12,19 @@ services:
     depends_on:
       - backend
 
-  # Серверная часть (Node.js/Express)
   backend:
-    build: ../be_inventory # Путь к директории с Dockerfile для бэкенда
+    build: ../be_inventory
+    container_name: backend
     ports:
-      - "4004:4004" # Пробрасываем порт 5000 хоста на порт 5000 контейнера
+      - "4004:4004"
     networks:
       - mern
     depends_on:
-      - mongo # Зависит от контейнера MongoDB
+      - mongo
 
-  # База данных (MongoDB)
   mongo:
-    image: mongo # Используем официальный образ MongoDB
+    image: mongo
+    container_name: mongodb
     ports:
       - "27017:27017"
     networks:
@@ -38,5 +39,3 @@ networks:
 volumes:
   mongo-data:
     driver: local
-
-  
