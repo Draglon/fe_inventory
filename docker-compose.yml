@@ -11,6 +11,7 @@ services:
       - mern
     depends_on:
       - backend
+    restart: always
 
   backend:
     build: ../be_inventory
@@ -21,16 +22,20 @@ services:
       - mern
     depends_on:
       - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/mydatabase
+    restart: always
 
   mongo:
     image: mongo
-    container_name: mongodb
+    container_name: mongo
     ports:
       - "27017:27017"
     networks:
       - mern
     volumes:
       - mongo-data:/data/db
+    restart: always
 
 networks:
   mern:
