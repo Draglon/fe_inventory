@@ -5,8 +5,6 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY . .
 RUN yarn build
-# EXPOSE 3000
-# CMD ["yarn", "start"]
 
 # Stage 2: Serve the Next.js application
 FROM node:22.21.0-alpine
@@ -19,7 +17,7 @@ CMD ["yarn", "start"]
 
 # # Nginx
 # FROM nginx:latest
-# COPY --from=builder /app/build/web /usr/share/nginx/html
+# COPY --from=builder /app/build /usr/share/nginx/html
 # COPY --from=builder /app/nginx/nginx.conf /etc/nginx/nginx.conf
 # EXPOSE 3000
 # CMD ["nginx", "-g", "daemon off;"]

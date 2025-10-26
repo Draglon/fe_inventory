@@ -13,8 +13,8 @@ More detail in [NVM Readme](https://github.com/creationix/nvm#install-script)
 Then install Node:
 
 ```bash
-$ nvm install ^v20
-$ nvm use ^v20
+$ nvm install ^v22
+$ nvm use ^v22
 ```
 
 ## Install Node modules
@@ -66,4 +66,12 @@ Create a public directory:
 
 ```bash
 $ yarn build
+```
+
+## Run docker compose
+
+Create a local:
+
+```bash
+$ docker compose up
 ```
