@@ -22,10 +22,6 @@ const UserHeader = () => {
     socket.on("currentTime", (time) => {
       setCurrentTime(time);
     });
-
-    // return () => {
-    //   socket.disconnect();
-    // };
   }, []);
 
   return (
