@@ -28,7 +28,7 @@ export const generateStaticParams = () => {
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Products" });
+  const t = await getTranslations({ locale, namespace: "Login" });
 
   return {
     title: t("layout.title"),
